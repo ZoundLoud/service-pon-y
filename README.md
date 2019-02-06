@@ -4,10 +4,10 @@
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/git-push-force/Proxy-Cowie
+  - https://github.com/git-push-force/the_right_stuff
+  - https://github.com/git-push-force/comment_section_kevin
+  - https://github.com/git-push-force/repo
 
 ## Table of Contents
 
