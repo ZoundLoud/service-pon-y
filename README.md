@@ -4,10 +4,9 @@
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/ZoundLoud/Proxy-Cowie
+  - https://github.com/ZoundLoud/the_right_stuff
+  - https://github.com/ZoundLoud/comment_section_kevin
 
 ## Table of Contents
 
