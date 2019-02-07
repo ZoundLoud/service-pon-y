@@ -4,12 +4,6 @@
   "description": "",
   "author": "",
   "license": "",
-  "babel": {
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react"
-    ]
-  },
   "engines": {
     "node": ">=6.13.0"
   },
