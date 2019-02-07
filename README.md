@@ -4,10 +4,9 @@
 
 ## Related Projects
 
-  - https://github.com/git-push-force/Proxy-Cowie
-  - https://github.com/git-push-force/the_right_stuff
-  - https://github.com/git-push-force/comment_section_kevin
-  - https://github.com/git-push-force/repo
+  - https://github.com/ZoundLoud/Proxy-Cowie
+  - https://github.com/ZoundLoud/the_right_stuff
+  - https://github.com/ZoundLoud/comment_section_kevin
 
 ## Table of Contents
 
