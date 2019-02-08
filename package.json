@@ -1,16 +1,20 @@
 {
-  "name": "",
+  "name": "Yvonne",
   "version": "",
-  "description": "",
+  "description": "Front End Design Capstone",
   "author": "",
   "license": "",
   "engines": {
     "node": ">=6.13.0"
   },
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack.config.js --mode development"
+    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "db": "mysql -u root source < ./schema.sql",
+    "seed": "node seedDB.js"
   },
   "dependencies": {
+    "faker": "^4.1.0",
+    "mysql": "^2.16.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0"
   },
