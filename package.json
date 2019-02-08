@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js --mode development",
-    "db": "mysql -u root < source /Users/pony/service-pon-y/schema.sql",
+    "db": "mysql -u root zoundloud <schema.sql",
     "seed": "node seedDB.js"
   },
   "dependencies": {
