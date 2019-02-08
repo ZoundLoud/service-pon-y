@@ -26,6 +26,14 @@ CREATE TABLE song_description (
     releasedate DATE,
     pline TEXT(150)
 );
+
+CREATE TABLE tags (
+    id INT(700) PRIMARY KEY AUTO_INCREMENT,
+    tag TEXT(300),
+    song_id INT(200),
+    FOREIGN KEY (song_id) REFERENCES song_description(id)
+    ON DELETE CASCADE ON UPDATE CASCADE
+);
 -- //to run, open mysql 5.7 
 -- and use the following command from the root directory:
 -- source ./schema.sql; 
