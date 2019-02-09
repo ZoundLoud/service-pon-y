@@ -1,11 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import App from './App';
 import './file.css';
 
-const title = 'Hello World!';
-
-ReactDOM.render(<div className="test">{title}</div>, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app'));
 
 if (module.hot) {
   module.hot.accept();
