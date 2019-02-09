@@ -47,10 +47,10 @@ for (let i = 0; i < 100; i += 1) {
   ]);
 }
 
-const sqlartist = `INSERT INTO artist_info(artistname, avatar_picture, no_of_followers, no_of_tracks, pro_status, is_followed)
+const sqlartist = `INSERT INTO artist_info(artist_name, avatar_picture, no_of_followers, no_of_tracks, pro_status, is_followed)
      VALUES ?`;
 
-const sqlsong = 'INSERT INTO song_description(songname, artistname, licence, descriptiontext, releasedby, releasedate, pline, tags ) VALUES ?';
+const sqlsong = 'INSERT INTO song_description(song_name, artist_name, licence, description_text, released_by, release_date, p_line, tags ) VALUES ?';
 connection.query(sqlartist, [artistvalues], (err, result) => {
   if (err) {
     console.log(err);

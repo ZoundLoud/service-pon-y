@@ -6,7 +6,7 @@ USE zoundloud;
 
 CREATE TABLE artist_info (
   id INT(100) PRIMARY KEY AUTO_INCREMENT,
-  artistname TEXT(150),
+  artist_name TEXT(150),
   avatar_picture TEXT(200),
   no_of_followers INT(20),
   no_of_tracks INT(20),
@@ -16,13 +16,13 @@ CREATE TABLE artist_info (
 
 CREATE TABLE song_description (
   id INT(100) PRIMARY KEY AUTO_INCREMENT,
-  songname TEXT(200),
-  artistname TEXT(200), 
+  song_name TEXT(200),
+  artist_name TEXT(200), 
   licence TEXT(200), 
-  descriptiontext TEXT(4000), 
-  releasedby TEXT(200), 
-  releasedate DATE, 
-  pline TEXT(200), 
+  description_text TEXT(4000), 
+  released_by TEXT(200), 
+  release_date DATE, 
+  p_line TEXT(200), 
   tags TEXT(200) 
 )
 
