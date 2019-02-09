@@ -18,5 +18,16 @@ const artistWidget = (cb) => {
   });
 };
 
+const songDescription = (cb) => {
+  connection.query('SELECT * from song_description', (err, results) => {
+    if (err) {
+      cb(err);
+      return;
+    }
+    cb(results);
+  });
+};
+
 
 module.exports.artistWidget = artistWidget;
+module.exports.songDescription = songDescription;
