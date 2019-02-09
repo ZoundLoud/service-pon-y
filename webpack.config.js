@@ -1,23 +1,34 @@
+const webpack = require('webpack');
+
 module.exports = {
-  entry: './client/index.js',
+  entry: `${__dirname}/client/src/index.jsx`,
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader'] 
-      }
-    ]
+        use: [
+          'babel-loader',
+        ],
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx']
+    extensions: ['*', '.js', '.jsx'],
   },
   output: {
-    path: __dirname + '/dist',
+    path: `${__dirname}/client/dist`,
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   devServer: {
-    contentBase: './dist'
-  }
+    contentBase: './client/dist',
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin({}),
+  ],
 };
