@@ -15,5 +15,10 @@ app.get('/artistinfo', (req, res) => {
   });
 });
 
+app.get('/songinfo', (req, res) => {
+  db.songDescription((data) => {
+    res.send(data);
+  });
+});
 
 app.listen(port, () => console.log(`LISTENING ON PORT ${port}`));
