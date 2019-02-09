@@ -1,16 +1,20 @@
 {
-  "name": "",
+  "name": "Yvonne",
   "version": "",
-  "description": "",
+  "description": "Front End Design Capstone",
   "author": "",
   "license": "",
   "engines": {
     "node": ">=6.13.0"
   },
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack.config.js --mode development"
+    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "db": "mysql -u root zoundloud <schema.sql",
+    "seed": "node seedDB.js"
   },
   "dependencies": {
+    "faker": "^4.1.0",
+    "mysql": "^2.16.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0"
   },
@@ -20,7 +24,10 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
     "babel-preset-airbnb": "^3.2.0",
+    "css-loader": "^2.1.0",
+    "eslint": "^5.13.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "style-loader": "^0.23.1",
     "webpack": "^4.29.1",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.1.14"

@@ -17,6 +17,8 @@
 ## Usage
 
 > Some usage instructions
+Initialize mysql tables
+run seed file with node db.js
 
 ## Requirements
 
