@@ -12,11 +12,58 @@ class App extends React.Component {
       name: artistData[0].artist_name,
       avatar: artistData[0].avatar_picture,
       followCount: artistData[0].no_of_followers,
+      roundedFollows: 0,
       trackCount: artistData[0].no_of_tracks,
       isFollowing: artistData[0].is_followed,
     };
 
     this.toggleFollow = this.toggleFollow.bind(this);
+    this.roundFollowCount = this.roundFollowCount.bind(this);
+  }
+
+  componentDidMount() {
+    this.roundFollowCount();
+  }
+
+  roundFollowCount() {
+    const { followCount } = this.state;
+    if (followCount < 1000) {
+      this.setState({
+        roundedFollows: followCount,
+      });
+    } else if (followCount < 10000) {
+      let num = followCount / 1000;
+      num = num.toString();
+      const newNum = `${num[0] + num[1] + num[2] + num[3]} K`;
+
+      this.setState({
+        roundedFollows: newNum,
+      });
+    } else if (followCount < 100000) {
+      let num = followCount / 10000;
+      num = num.toString();
+      const newNum = `${num[0] + num[1] + num[2] + num[3]} K`;
+
+      this.setState({
+        roundedFollows: newNum,
+      });
+    } else if (followCount < 1000000) {
+      let num = followCount / 10000;
+      num = num.toString();
+      const newNum = `${num[0] + num[1] + num[2] + num[3]} K`;
+
+      this.setState({
+        roundedFollows: newNum,
+      });
+    } else {
+      let num = followCount / 1000000;
+      num = num.toString();
+      const newNum = `${num[0] + num[1] + num[2] + num[3]} M`;
+
+      this.setState({
+        roundedFollows: newNum,
+      });
+    }
   }
 
   toggleFollow() {
@@ -26,17 +73,20 @@ class App extends React.Component {
     });
   }
 
+
   render() {
     const {
-      name, avatar, followCount, trackCount, isFollowing,
+      name, avatar, followCount, roundedFollows, trackCount, isFollowing,
     } = this.state;
     return (
       <div className="container">
         <img src={avatar} alt="avatar" />
         <div id="artistName">{name}</div>
         <div id="followAndTrackCount">
-         (icon here):
-          {followCount}
+          <span id={followCount}>
+           (icon here):
+            {roundedFollows}
+          </span>
           (icon here):
           {trackCount}
         </div>
