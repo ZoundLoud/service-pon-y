@@ -1,4 +1,8 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faUserFriends, faHeadphones, faCircle, faStar,
+} from '@fortawesome/free-solid-svg-icons';
 import artistData from '../data/artistData';
 
 class ArtistWidget extends React.Component {
@@ -78,13 +82,25 @@ class ArtistWidget extends React.Component {
     return (
       <div className="container">
         <img src={avatar} alt="avatar" />
-        <div id="artistName">{name}</div>
+        <div id="artistName">
+          {name}
+          {' '}
+          <span className="fa-layers fa-fw">
+            <FontAwesomeIcon icon={faCircle} size="sm" color="#f50" />
+            <FontAwesomeIcon icon={faStar} size="xs" color="#fff" />
+          </span>
+
+        </div>
         <div id="followAndTrackCount">
           <span id={followCount}>
-           (icon here):
+            <FontAwesomeIcon icon={faUserFriends} />
+            {' '}
+
             {roundedFollows}
           </span>
-          (icon here):
+          {' '}
+          <FontAwesomeIcon icon={faHeadphones} />
+          {' '}
           {trackCount}
         </div>
         <button id="followingButton" onClick={this.toggleFollow}>{isFollowing ? 'Following' : 'Follow'}</button>

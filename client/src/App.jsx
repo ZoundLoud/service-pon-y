@@ -4,6 +4,7 @@ import ArtistWidget from './components/ArtistWidget';
 function App() {
   return (
     <div>
+
       <ArtistWidget />
     </div>
   );
