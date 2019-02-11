@@ -1,13 +1,23 @@
-body {
-    font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Verdana,Tahoma,sans-serif;
+.container {
+    height: 500px;
+    width: 500px;
+    border: 1px black solid;
+    font: 14px "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Verdana,Tahoma,sans-serif;
     color: #333;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding: 5px;
 }
 
-.test {
-    background-color: aquamarine;
+img {
+    border-radius: 50%;
 }
 
-.testing {
-    color: brown;
-    background-color: chartreuse;
+#artistName {
+    font: 14px "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Verdana,Tahoma,sans-serif;
+    color: #333;
+    margin: 5px;
 }
