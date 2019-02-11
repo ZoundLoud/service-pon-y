@@ -23,6 +23,7 @@ class ArtistWidget extends React.Component {
   }
 
   componentDidMount() {
+    fetch();
     this.roundFollowCount();
   }
 
@@ -80,7 +81,7 @@ class ArtistWidget extends React.Component {
       name, avatar, followCount, roundedFollows, trackCount, isFollowing,
     } = this.state;
     return (
-      <div className="container">
+      <div className="artistWidget">
         <img src={avatar} alt="avatar" />
         <div id="artistName">
           {name}
