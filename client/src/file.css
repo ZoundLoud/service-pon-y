@@ -1,9 +1,8 @@
 b {
-    margin-top: 20px;
-    margin-bottom:10px;
+    display: block;
+    padding: 5px 0px;
 }
 .container {
-    border: 1px red dotted;
     display: flex;
     margin-block-start: 1em;
     margin-block-end: 1em;
@@ -14,7 +13,6 @@ b {
 .artistWidget {
     height: 500px;
     width: 150px;
-    border: 1px grey dotted;
     font: 14px "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Verdana,Tahoma,sans-serif;
     color: #333;
     display: block;
@@ -26,10 +24,12 @@ b {
     height: 170px;
     font: 12px "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Verdana,Tahoma,sans-serif;
     color: #333;
-    border: 1px green dotted;
     overflow: visible;
 }
 
+.detailsContainer {
+    padding: 10px 0;
+}
 .tag {
     float: left;
     margin: 0 6px 6px 0;
