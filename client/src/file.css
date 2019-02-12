@@ -1,3 +1,107 @@
-.test {
-    background-color: aquamarine;
+b {
+    margin-top: 20px;
+    margin-bottom:10px;
+}
+.container {
+    border: 1px red dotted;
+    display: flex;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding: 15px;
+}
+.artistWidget {
+    height: 500px;
+    width: 150px;
+    border: 1px grey dotted;
+    font: 14px "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Verdana,Tahoma,sans-serif;
+    color: #333;
+    display: block;
+
+}
+
+.songDetailWidget {
+    width: 400px;
+    height: 170px;
+    font: 12px "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Verdana,Tahoma,sans-serif;
+    color: #333;
+    border: 1px green dotted;
+    overflow: visible;
+}
+
+.tag {
+    float: left;
+    margin: 0 6px 6px 0;
+    position: relative;
+    display: inline-block;
+    height: 20px;
+    padding: 0 7px;
+    background: #999;
+    border: 1px solid #999;
+    border-left-width: 0;
+    color: #fff;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    font-size: 14px;
+    line-height: 20px;
+    white-space: nowrap;
+    cursor: pointer;
+    border-radius: 20px;
+    user-select: none;
+    list-style: none;
+    content: "#";
+    display: block;
+    margin-right: 3px;
+}
+
+.tag:hover {
+    background: #333;
+}
+img {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    box-shadow: rgba(0,0,0,.1)0 0 0 1px inset;
+    text-align: center;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    cursor: pointer;
+    object-fit: cover;
+}
+#followAndTrackCount {
+    color: #999;
+    font-size: 11px;
+    line-height: 12px;
+    margin-bottom:10px;
+}
+#artistName {
+    font: 14px "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Verdana,Tahoma,sans-serif;
+    color: #333;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+#followingButton {
+    background-color: #f50;
+    border-color: #f50;
+    color: #fff;
+    font-size: 11px;
+    padding: 2px 9px 2px 8px;
+    height: 22px;
+    line-height: 16px;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    white-space: nowrap;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    text-align: center;
+    vertical-align: baseline;
+    box-sizing: border-box;
 }

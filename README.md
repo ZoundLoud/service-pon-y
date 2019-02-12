@@ -1,6 +1,7 @@
 # Project Name
 
-> Project description
+> Front End Capstone Project by Yvonne Pon
+
 
 ## Related Projects
 
@@ -17,8 +18,11 @@
 ## Usage
 
 > Some usage instructions
-Initialize mysql tables
-run seed file with node db.js
+1. load tables from schema.sql
+2. seed data from seedDB.js
+3. start server 
+
+- Can check react work on localhost:8080
 
 ## Requirements
 

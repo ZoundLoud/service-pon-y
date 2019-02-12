@@ -13,10 +13,17 @@
     "seed": "node seedDB.js"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.14",
+    "@fortawesome/free-brands-svg-icons": "^5.7.1",
+    "@fortawesome/free-regular-svg-icons": "^5.7.1",
+    "@fortawesome/free-solid-svg-icons": "^5.7.1",
+    "@fortawesome/react-fontawesome": "^0.1.4",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "faker": "^4.1.0",
+    "i": "^0.3.6",
     "mysql": "^2.16.0",
+    "npm": "^6.7.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0"
   },
