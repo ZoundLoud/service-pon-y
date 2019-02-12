@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faUserFriends, faHeadphones, faCircle, faStar,
 } from '@fortawesome/free-solid-svg-icons';
+import NumericLabel from 'react-pretty-numbers';
 import artistData from '../data/artistData';
 
 class ArtistWidget extends React.Component {
@@ -10,62 +11,26 @@ class ArtistWidget extends React.Component {
     super(props);
 
     this.state = {
-      name: artistData[0].artist_name,
-      avatar: artistData[5].avatar_picture,
-      followCount: artistData[0].no_of_followers,
+      name: null,
+      avatar: null,
+      followCount: 0,
       roundedFollows: 0,
-      trackCount: artistData[0].no_of_tracks,
-      isFollowing: artistData[0].is_followed,
+      trackCount: null,
+      isFollowing: null,
     };
 
     this.toggleFollow = this.toggleFollow.bind(this);
-    this.roundFollowCount = this.roundFollowCount.bind(this);
   }
 
   componentDidMount() {
-    fetch();
-    this.roundFollowCount();
-  }
-
-  roundFollowCount() {
-    const { followCount } = this.state;
-    if (followCount < 1000) {
-      this.setState({
-        roundedFollows: followCount,
-      });
-    } else if (followCount < 10000) {
-      let num = followCount / 1000;
-      num = num.toString();
-      const newNum = `${num[0] + num[1] + num[2] + num[3]} K`;
-
-      this.setState({
-        roundedFollows: newNum,
-      });
-    } else if (followCount < 100000) {
-      let num = followCount / 10000;
-      num = num.toString();
-      const newNum = `${num[0] + num[1] + num[2] + num[3]} K`;
-
-      this.setState({
-        roundedFollows: newNum,
-      });
-    } else if (followCount < 1000000) {
-      let num = followCount / 10000;
-      num = num.toString();
-      const newNum = `${num[0] + num[1] + num[2] + num[3]} K`;
-
-      this.setState({
-        roundedFollows: newNum,
-      });
-    } else {
-      let num = followCount / 1000000;
-      num = num.toString();
-      const newNum = `${num[0] + num[1] + num[2] + num[3]} M`;
-
-      this.setState({
-        roundedFollows: newNum,
-      });
-    }
+    const random = Math.floor(Math.random() * 100);
+    this.setState({
+      name: artistData[random].artist_name,
+      avatar: artistData[random].avatar_picture,
+      followCount: artistData[random].no_of_followers,
+      trackCount: artistData[random].no_of_tracks,
+      isFollowing: artistData[random].is_followed,
+    });
   }
 
   toggleFollow() {
@@ -80,6 +45,20 @@ class ArtistWidget extends React.Component {
     const {
       name, avatar, followCount, roundedFollows, trackCount, isFollowing,
     } = this.state;
+
+    const params = {
+      justification: 'L',
+      locales: 'en-AU',
+      currency: false,
+      percentage: false,
+      precision: 1,
+      commafy: false,
+      shortFormat: true,
+      shortFormatMinValue: 1001,
+      title: true,
+
+    };
+
     return (
       <div className="artistWidget">
         <img src={avatar} alt="avatar" />
@@ -97,10 +76,10 @@ class ArtistWidget extends React.Component {
             <FontAwesomeIcon icon={faUserFriends} />
             {' '}
 
-            {roundedFollows}
+            <NumericLabel params={params}>{followCount}</NumericLabel>
           </span>
-          {' '}
-          <FontAwesomeIcon icon={faHeadphones} />
+          {'   '}
+          <FontAwesomeIcon color="#666" icon={faHeadphones} />
           {' '}
           {trackCount}
         </div>
