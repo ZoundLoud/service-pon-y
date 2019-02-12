@@ -1,3 +1,7 @@
+b {
+    margin-top: 20px;
+    margin-bottom:10px;
+}
 .container {
     border: 1px red dotted;
     display: flex;
@@ -19,11 +23,40 @@
 
 .songDetailWidget {
     width: 400px;
-    height: 150px;
+    height: 170px;
     font: 12px "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Verdana,Tahoma,sans-serif;
     color: #333;
     border: 1px green dotted;
     overflow: visible;
+}
+
+.tag {
+    float: left;
+    margin: 0 6px 6px 0;
+    position: relative;
+    display: inline-block;
+    height: 20px;
+    padding: 0 7px;
+    background: #999;
+    border: 1px solid #999;
+    border-left-width: 0;
+    color: #fff;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    font-size: 14px;
+    line-height: 20px;
+    white-space: nowrap;
+    cursor: pointer;
+    border-radius: 20px;
+    user-select: none;
+    list-style: none;
+    content: "#";
+    display: block;
+    margin-right: 3px;
+}
+
+.tag:hover {
+    background: #333;
 }
 img {
     height: 120px;
