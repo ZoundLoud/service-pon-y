@@ -1,6 +1,20 @@
 import React from 'react';
 import songData from '../data/songData';
 
+
+function SongDetail({ label, value }) {
+  if (!value) {
+    return null;
+  }
+  return (
+    <div>
+      <b>{label}</b>
+      <div>{value}</div>
+    </div>
+  );
+}
+
+
 class SongDetailWidget extends React.Component {
   constructor(props) {
     super(props);
@@ -32,19 +46,12 @@ class SongDetailWidget extends React.Component {
     return (
       <div className="songDetailWidget">
         <div>{description}</div>
-        <div>
-          <b>Released By:</b>
-          <div>{releasedBy}</div>
-          {' '}
-          <b>Release Date:</b>
-          <div>{releaseDate}</div>
-          {' '}
-          <b>P-line:</b>
-          <div>{pline}</div>
-          {' '}
-          <b>Licensed By:</b>
-          <div>{license}</div>
-          {' '}
+        <div className="detailsContainer">
+          <SongDetail label="Released By:" value={releasedBy} />
+          <SongDetail label="Release Date:" value={releaseDate} />
+          <SongDetail label="P-line:" value={pline} />
+          <SongDetail label="Licensed By:" value={license} />
+
         </div>
         {tag}
       </div>
