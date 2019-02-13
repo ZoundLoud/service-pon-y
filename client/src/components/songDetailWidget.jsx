@@ -2,8 +2,10 @@ import React from 'react';
 import Moment from 'react-moment';
 import 'moment-timezone';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
+import classNames from 'classnames';
 import songData from '../data/songData';
+
 
 function SongDetail({ label, value }) {
   if (!value) {
@@ -60,13 +62,32 @@ class SongDetailWidget extends React.Component {
   }
 
   expandDescription() {
-    return null;
+    // const { this.proptruncated } = this.props;
+    if (this.props.truncated) {
+      return (
+        <div className="showMoreText" onClick={this.props.toggleTruncate}>
+Show more
+          {'  '}
+          <span><FontAwesomeIcon icon={faAngleDown} /></span>
+          {' '}
+        </div>
+      );
+    }
+    return (
+      <div className="showMoreText" onClick={this.props.toggleTruncate}>
+Show less
+        {'  '}
+        <span><FontAwesomeIcon icon={faAngleUp} /></span>
+        {' '}
+      </div>
+    );
   }
 
   render() {
     const {
       description, license, releaseDate, releasedBy, pline, tags,
     } = this.state;
+    // const { truncated, toggleTruncate } = this.props;
     const array = tags.split(' ');
     const tag = array.map(el => (
       <span className="tag">
@@ -76,9 +97,11 @@ class SongDetailWidget extends React.Component {
         {' '}
       </span>
     ));
+
+    const truncatedClassName = this.props.truncated ? 'songDetailWidgetSmall' : 'songDetailWidgetExpanded';
     return (
       <div id="songDetailContainer">
-        <div id="songDetailWidgetSmall">
+        <div className={truncatedClassName}>
           <div>{description}</div>
           <div className="detailsContainer">
             <SongDetail label="Released By:" value={releasedBy} />
@@ -90,12 +113,7 @@ class SongDetailWidget extends React.Component {
 
           {tag}
         </div>
-        <div>
-Show more
-          {'  '}
-          <span><FontAwesomeIcon color="#999" icon={faAngleDown} /></span>
-          {' '}
-        </div>
+        {this.expandDescription()}
       </div>
     );
   }
