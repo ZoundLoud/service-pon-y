@@ -19,16 +19,25 @@ b {
 
 }
 
-#songDetailWidgetSmall {
+.songDetailWidgetSmall {
     width: 400px;
     height: 170px;
     font: 12px "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Verdana,Tahoma,sans-serif;
     color: #333;
+    overflow: hidden;
+}
+.songDetailWidgetExpanded{
+    width: 400px;
+    height: auto;
+    font: 12px "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Verdana,Tahoma,sans-serif;
+    color: #333;
     overflow: visible;
 }
-
 .detailsContainer {
     padding: 10px 0;
+}
+.descriptionTagContainer {
+    padding-bottom: 35px;
 }
 .tag {
     float: left;
@@ -131,6 +140,15 @@ img {
     box-sizing: border-box;
 
 }
-#seeMore {
-
+.showMoreText{
+    width: 400px;
+    height: 20px;
+    color: #999;
+}
+.showMoreText:hover {
+    color: #333;
+    cursor: pointer;
+}
+.showMoreText:active {
+    color: #333;
 }

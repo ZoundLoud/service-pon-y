@@ -2,14 +2,34 @@ import React from 'react';
 import ArtistWidget from './components/ArtistWidget';
 import SongDetailWidget from './components/songDetailWidget';
 
-function App() {
-  return (
-    <div className="container">
+class App extends React.Component {
+  constructor(props) {
+    super(props);
 
-      <ArtistWidget />
-      <SongDetailWidget />
-    </div>
-  );
+    this.state = {
+      detailsTruncated: true,
+    };
+    this.toggleTruncate = this.toggleTruncate.bind(this);
+  }
+
+  toggleTruncate() {
+    const { detailsTruncated } = this.state;
+    this.setState({
+      detailsTruncated: !detailsTruncated,
+    });
+  }
+
+  render() {
+    const { detailsTruncated } = this.state;
+
+    return (
+      <div className="container">
+
+        <ArtistWidget />
+        <SongDetailWidget truncated={detailsTruncated} toggleTruncate={this.toggleTruncate} />
+      </div>
+    );
+  }
 }
 
 export default App;
