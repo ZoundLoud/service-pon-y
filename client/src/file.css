@@ -36,6 +36,9 @@ b {
 .detailsContainer {
     padding: 10px 0;
 }
+.descriptionTagContainer {
+    padding-bottom: 35px;
+}
 .tag {
     float: left;
     margin: 0 6px 6px 0;
@@ -137,6 +140,14 @@ img {
     box-sizing: border-box;
 
 }
-#showMoreText{
+.showMoreText{
+    width: 400px;
+    height: 20px;
     color: #999;
+}
+.showMoreText:hover {
+    color: #333;
+}
+.showMoreText:active {
+    color: #333;
 }

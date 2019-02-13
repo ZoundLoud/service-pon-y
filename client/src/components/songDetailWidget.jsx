@@ -110,8 +110,11 @@ Show less
             <SongDetail label="Licensed By:" value={license} />
 
           </div>
+          <div>{' '}</div>
+          <div className="descriptionTagContainer">
+            {tag}
+          </div>
 
-          {tag}
         </div>
         {this.expandDescription()}
       </div>

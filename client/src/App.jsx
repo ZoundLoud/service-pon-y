@@ -13,6 +13,7 @@ class App extends React.Component {
   }
 
   toggleTruncate() {
+    const { detailsTruncated } = this.state;
     this.setState({
       detailsTruncated: !detailsTruncated,
     });
