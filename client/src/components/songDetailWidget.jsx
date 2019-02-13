@@ -1,6 +1,8 @@
 import React from 'react';
 import Moment from 'react-moment';
 import 'moment-timezone';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import songData from '../data/songData';
 
 function SongDetail({ label, value }) {
@@ -42,6 +44,23 @@ class SongDetailWidget extends React.Component {
       pline: songData[0].p_line,
 
     };
+    this.expandDescription = this.expandDescription.bind(this);
+  }
+
+  componentDidMount() {
+    const random = Math.floor(Math.random() * 100);
+    this.setState({
+      description: songData[random].description_text,
+      tags: songData[random].tags,
+      license: songData[random].license,
+      releasedBy: songData[random].released_by,
+      releaseDate: songData[random].release_date,
+      pline: songData[random].p_line,
+    });
+  }
+
+  expandDescription() {
+    return null;
   }
 
   render() {
@@ -58,16 +77,25 @@ class SongDetailWidget extends React.Component {
       </span>
     ));
     return (
-      <div className="songDetailWidget">
-        <div>{description}</div>
-        <div className="detailsContainer">
-          <SongDetail label="Released By:" value={releasedBy} />
-          <SongDetail label="Release Date:" value={releaseDate} />
-          <SongDetail label="P-line:" value={pline} />
-          <SongDetail label="Licensed By:" value={license} />
+      <div id="songDetailContainer">
+        <div id="songDetailWidgetSmall">
+          <div>{description}</div>
+          <div className="detailsContainer">
+            <SongDetail label="Released By:" value={releasedBy} />
+            <SongDetail label="Release Date:" value={releaseDate} />
+            <SongDetail label="P-line:" value={pline} />
+            <SongDetail label="Licensed By:" value={license} />
 
+          </div>
+
+          {tag}
         </div>
-        {tag}
+        <div>
+Show more
+          {'  '}
+          <span><FontAwesomeIcon color="#999" icon={faAngleDown} /></span>
+          {' '}
+        </div>
       </div>
     );
   }

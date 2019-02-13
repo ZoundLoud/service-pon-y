@@ -6,6 +6,17 @@ import {
 import NumericLabel from 'react-pretty-numbers';
 import artistData from '../data/artistData';
 
+function FollowButton({ isFollowing, toggleFollow }) {
+  if (isFollowing) {
+    return (
+      <button id="followingArtistButton" onClick={toggleFollow}>Following</button>
+    );
+  }
+  return (
+    <button id="followArtistButton" onClick={toggleFollow}>Follow</button>
+  );
+}
+
 class ArtistWidget extends React.Component {
   constructor(props) {
     super(props);
@@ -43,7 +54,7 @@ class ArtistWidget extends React.Component {
 
   render() {
     const {
-      name, avatar, followCount, roundedFollows, trackCount, isFollowing,
+      name, avatar, followCount, trackCount, isFollowing,
     } = this.state;
 
     const params = {
@@ -66,7 +77,7 @@ class ArtistWidget extends React.Component {
           {name}
           {' '}
           <span className="fa-layers fa-fw">
-            <FontAwesomeIcon icon={faCircle} size="sm" color="#f50" />
+            <FontAwesomeIcon icon={faCircle} size="m" color="#f50" />
             <FontAwesomeIcon icon={faStar} size="xs" color="#fff" />
           </span>
 
@@ -83,9 +94,12 @@ class ArtistWidget extends React.Component {
           {' '}
           {trackCount}
         </div>
-        <button id="followingButton" onClick={this.toggleFollow}>{isFollowing ? 'Following' : 'Follow'}</button>
+        {/* <button id="followingButton" onClick={this.toggleFollow}>{isFollowing ? 'Following' : 'Follow'}</button> */}
+        <FollowButton isFollowing={isFollowing} toggleFollow={this.toggleFollow} />
       </div>
     );
   }
 }
+
+
 export default ArtistWidget;
