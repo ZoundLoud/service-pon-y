@@ -15,9 +15,7 @@ function SongDetail({ label, value }) {
     return (
       <div>
         <b>
-          {' '}
           {label}
-          {' '}
         </b>
         <Moment format="D MMMM YYYY" date={value} />
 
@@ -67,18 +65,14 @@ class SongDetailWidget extends React.Component {
       return (
         <div className="showMoreText" onClick={this.props.toggleTruncate}>
 Show more
-          {'  '}
           <span><FontAwesomeIcon icon={faAngleDown} /></span>
-          {' '}
         </div>
       );
     }
     return (
       <div className="showMoreText" onClick={this.props.toggleTruncate}>
 Show less
-        {'  '}
         <span><FontAwesomeIcon icon={faAngleUp} /></span>
-        {' '}
       </div>
     );
   }
@@ -91,10 +85,8 @@ Show less
     const array = tags.split(' ');
     const tag = array.map(el => (
       <span className="tag">
-        {' '}
         #
         {el}
-        {' '}
       </span>
     ));
 
@@ -110,7 +102,7 @@ Show less
             <SongDetail label="Licensed By:" value={license} />
 
           </div>
-          <div>{' '}</div>
+          <div />
           <div className="descriptionTagContainer">
             {tag}
           </div>
