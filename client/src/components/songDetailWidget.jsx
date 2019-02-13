@@ -1,10 +1,24 @@
 import React from 'react';
+import Moment from 'react-moment';
+import 'moment-timezone';
 import songData from '../data/songData';
-
 
 function SongDetail({ label, value }) {
   if (!value) {
     return null;
+  }
+  if (label === 'Release Date:') {
+    return (
+      <div>
+        <b>
+          {' '}
+          {label}
+          {' '}
+        </b>
+        <Moment format="D MMMM YYYY" date={value} />
+
+      </div>
+    );
   }
   return (
     <div>
