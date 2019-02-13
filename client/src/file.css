@@ -147,6 +147,7 @@ img {
 }
 .showMoreText:hover {
     color: #333;
+    cursor: pointer;
 }
 .showMoreText:active {
     color: #333;
