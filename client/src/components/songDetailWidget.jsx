@@ -45,18 +45,45 @@ class SongDetailWidget extends React.Component {
 
     };
     this.expandDescription = this.expandDescription.bind(this);
+    this.parseAtInDescription = this.parseAtInDescription.bind(this);
   }
+
 
   componentDidMount() {
     const random = Math.floor(Math.random() * 100);
     this.setState({
-      description: songData[random].description_text,
+      description: songData[0].description_text,
       tags: songData[random].tags,
       license: songData[random].license,
       releasedBy: songData[random].released_by,
       releaseDate: songData[random].release_date,
       pline: songData[random].p_line,
     });
+  }
+
+  parseAtInDescription() {
+    const { description } = this.state;
+
+    const parsedDescription = [];
+    const hold = '';
+    const descriptionArray = description.split(' ');
+    descriptionArray.forEach((word) => {
+      if (word[0] === '@') {
+        parsedDescription.push(<span className="songDescriptionAt">
+          {word}
+          {' '}
+        </span>);
+      } else {
+        parsedDescription.push(`${word} `);
+      }
+    });
+
+    console.log('parsed??? ', parsedDescription);
+    return (
+      <div>
+        {parsedDescription}
+      </div>
+    );
   }
 
   expandDescription() {
@@ -94,7 +121,8 @@ Show less
     return (
       <div id="songDetailContainer">
         <div className={truncatedClassName}>
-          <div>{description}</div>
+          {/* <div>{description}</div> */}
+          <div>{this.parseAtInDescription()}</div>
           <div className="detailsContainer">
             <SongDetail label="Released By:" value={releasedBy} />
             <SongDetail label="Release Date:" value={releaseDate} />

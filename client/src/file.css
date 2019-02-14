@@ -177,3 +177,10 @@ img {
     width: 10%;
 
 }
+
+.songDescriptionAt {
+    color: #38d;
+}
+.songDescriptionAt:hover {
+    color: #666;
+}
