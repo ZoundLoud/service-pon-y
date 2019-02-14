@@ -190,4 +190,10 @@ img {
 .reportButton {
     font-size: 10px;
     color: #666;
+    cursor: pointer;
+}
+
+.reportButton:hover {
+    color:#333;
+    cursor: pointer;
 }
