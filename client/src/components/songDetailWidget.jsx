@@ -65,14 +65,13 @@ class SongDetailWidget extends React.Component {
     const { description } = this.state;
 
     const parsedDescription = [];
-    const hold = '';
     const descriptionArray = description.split(' ');
     descriptionArray.forEach((word) => {
       if (word[0] === '@') {
         parsedDescription.push(<span className="songDescriptionAt">
           {word}
           {' '}
-        </span>);
+                               </span>);
       } else {
         parsedDescription.push(`${word} `);
       }

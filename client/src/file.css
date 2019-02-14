@@ -186,3 +186,8 @@ img {
     color: #666;
     cursor: pointer;
 }
+
+.reportButton {
+    font-size: 10px;
+    color: #666;
+}

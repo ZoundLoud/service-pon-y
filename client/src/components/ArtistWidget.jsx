@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faUserFriends, faHeadphones, faCircle, faStar,
+  faUserFriends, faHeadphones, faCircle, faStar, faSquare, faExclamation,
 } from '@fortawesome/free-solid-svg-icons';
 import NumericLabel from 'react-pretty-numbers';
 import artistData from '../data/artistData';
@@ -103,7 +103,17 @@ class ArtistWidget extends React.Component {
 
         </div>
         <FollowButton isFollowing={isFollowing} toggleFollow={this.toggleFollow} />
+        <div className="reportButton" style={{ marginTop: '30px' }}>
+          <span className="fa-layers fa-fw">
+            <FontAwesomeIcon icon={faSquare} size="1x" transform={{ rotate: 45 }} />
+            <span style={{ fontSize: '7px' }}>
+              <FontAwesomeIcon icon={faExclamation} size="1x" color="#fff" />
+            </span>
+          </span>
+          {'  Report'}
+        </div>
       </div>
+
     );
   }
 }
