@@ -27,6 +27,27 @@ b {
     color: #333;
     overflow: hidden;
     min-width: 100px;
+    z-index: 0;
+    
+}
+
+.songDetailWidgetSmall::after {
+    content: ' ';
+    position: absolute;
+    left: 0;
+    bottom:0;
+    height:20px;
+    width: 100%;
+    background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,0.5) 90%,#fff);
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255 0.5) 90%, rgb(255, 255, 255));
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: initial;
 }
 .songDetailWidgetExpanded{
     width: 80%;
@@ -35,6 +56,7 @@ b {
     color: #333;
     overflow: visible;
     min-width: 100px;
+    z-index: 0;
 }
 .detailsContainer {
     padding: 10px 0;
@@ -181,6 +203,65 @@ img {
 .songDescriptionAt {
     color: #38d;
     cursor: pointer;
+}
+
+.songDescriptionAt span {
+    position: absolute;
+    width:140px;
+    color: #333;
+    background: #000000;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    visibility: hidden;
+    border-radius: 6px;
+}
+.songDescriptionAt:hover > span {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    width:150px;
+    color: #333;
+    background: #fff;
+    min-height:199px;
+    text-align: center;
+    visibility: visible;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 7px -1px rgba(0, 0, 0, 0.4);
+}
+.songDescriptionAt:hover span img{
+
+    border-radius: 50%;
+    text-align: center;
+    position: center;
+    background-repeat: no-repeat;
+    display: block;
+    width:80px;
+    height: 80px;
+    opacity: 1;
+    box-shadow: rgba(0,0,0, .1) 0 0 0 1px inset;
+    transition: opacity .2s linear;
+    bottom: 100%;
+}
+
+.songDescriptionAt:hover > span .songComponentAtArtistName{
+    text-align: center;
+    position: center;
+    background-repeat: no-repeat;
+    display: block;
+    font-size: 14px;
+    font-weight:100;
+    color: #333;
+}
+
+.songDescriptionAt:hover > span small{
+    text-align: center;
+    position: center;
+    background-repeat: no-repeat;
+    font-weight:100;
+    color: #666;
 }
 .songDescriptionAt:hover {
     color: #666;

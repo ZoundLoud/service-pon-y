@@ -2,10 +2,10 @@ import React from 'react';
 import Moment from 'react-moment';
 import 'moment-timezone';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDown, faAngleUp, faUserFriends } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
 import songData from '../data/songData';
-
+import artistData from '../data/artistData';
 
 function SongDetail({ label, value }) {
   if (!value) {
@@ -73,12 +73,24 @@ class SongDetailWidget extends React.Component {
         parsedDescription.push(<span className="songDescriptionAt">
           {word}
           {' '}
-        </span>);
+          <span>
+            <img src={artistData[35].avatar_picture} />
+            <div className="songComponentAtArtistName" title={`Visit ${artistData[35].artist_name}'s profile`}>{artistData[35].artist_name}</div>
+            <div className="songComponentAtFollows" title={`${artistData[35].no_of_followers} followers`}>
+              <FontAwesomeIcon icon={faUserFriends} color="#999" />
+              {' '}
+              <small>
+                {artistData[35].no_of_followers}
+              </small>
+            </div>
+          </span>
+          {' '}
+                               </span>);
       } else if (regexp.test(word)) {
         parsedDescription.push(<span className="songDescriptionURL">
           {`${word} `}
           {' '}
-                               </span>);
+        </span>);
       } else {
         parsedDescription.push(`${word} `);
       }
