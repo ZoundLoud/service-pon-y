@@ -180,7 +180,9 @@ img {
 
 .songDescriptionAt {
     color: #38d;
+    cursor: pointer;
 }
 .songDescriptionAt:hover {
     color: #666;
+    cursor: pointer;
 }

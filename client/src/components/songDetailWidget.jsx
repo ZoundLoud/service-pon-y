@@ -78,7 +78,6 @@ class SongDetailWidget extends React.Component {
       }
     });
 
-    console.log('parsed??? ', parsedDescription);
     return (
       <div>
         {parsedDescription}
