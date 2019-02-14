@@ -197,3 +197,12 @@ img {
     color:#333;
     cursor: pointer;
 }
+
+.songDescriptionURL {
+    color: #38d;
+    cursor: pointer;
+}
+.songDescriptionURL:hover {
+    color: #666;
+    cursor: pointer;
+}
