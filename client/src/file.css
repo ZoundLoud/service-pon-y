@@ -86,12 +86,25 @@ img {
     font-size: 12px;
     color: #999;
 }
-#followAndTrackCount {
+.followAndTrackCount {
     color: #999;
     font-size: 11px;
     line-height: 12px;
     margin-bottom:10px;
 }
+
+.ArtistTrackBadge {
+    color: #999;
+    padding: 0 5px;
+    cursor: pointer;
+}
+
+.ArtistFollowBadge {
+    color: #999;
+    padding-right: 5px;
+    cursor: pointer;
+}
+
 #artistName {
     font: 14px "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Verdana,Tahoma,sans-serif;
     color: #333;

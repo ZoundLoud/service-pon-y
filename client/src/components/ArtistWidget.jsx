@@ -82,17 +82,21 @@ class ArtistWidget extends React.Component {
           </span>
 
         </div>
-        <div id="followAndTrackCount">
-          <span id={followCount}>
-            <FontAwesomeIcon icon={faUserFriends} />
-            {' '}
-
+        <div className="followAndTrackCount">
+          <span className="ArtistFollowBadge" id={followCount}>
+            <span style={{ marginRight: '3px' }}>
+              <FontAwesomeIcon color="#999" icon={faUserFriends} />
+            </span>
+            {/* <span padding-right="3px">{' '}</span> */}
             <NumericLabel params={params}>{followCount}</NumericLabel>
           </span>
-          {'   '}
-          <FontAwesomeIcon color="#666" icon={faHeadphones} />
-          {' '}
-          {trackCount}
+          <span className="ArtistTrackBadge">
+            <span style={{ marginRight: '3px' }}>
+              <FontAwesomeIcon color="#666" padding-right="3px" icon={faHeadphones} />
+            </span>
+            {trackCount}
+          </span>
+
         </div>
         {/* <button id="followingButton" onClick={this.toggleFollow}>{isFollowing ? 'Following' : 'Follow'}</button> */}
         <FollowButton isFollowing={isFollowing} toggleFollow={this.toggleFollow} />
