@@ -7,13 +7,14 @@ import NumericLabel from 'react-pretty-numbers';
 import artistData from '../data/artistData';
 
 function FollowButton({ isFollowing, toggleFollow }) {
+  const followToolTip = isFollowing ? 'Unfollow' : 'Follow';
   if (isFollowing) {
     return (
-      <button id="followingArtistButton" onClick={toggleFollow}>Following</button>
+      <button id="followingArtistButton" onClick={toggleFollow} title={followToolTip}>Following</button>
     );
   }
   return (
-    <button id="followArtistButton" onClick={toggleFollow}>Follow</button>
+    <button id="followArtistButton" onClick={toggleFollow} title={followToolTip}>Follow</button>
   );
 }
 
@@ -25,7 +26,6 @@ class ArtistWidget extends React.Component {
       name: null,
       avatar: null,
       followCount: 0,
-      roundedFollows: 0,
       trackCount: null,
       isFollowing: null,
     };
@@ -66,7 +66,7 @@ class ArtistWidget extends React.Component {
       commafy: false,
       shortFormat: true,
       shortFormatMinValue: 1001,
-      title: true,
+      title: false,
 
     };
 
@@ -74,27 +74,34 @@ class ArtistWidget extends React.Component {
       <div className="artistWidget">
         <img src={avatar} alt="avatar" />
         <div id="artistName">
-          {name}
-          {' '}
-          <span className="fa-layers fa-fw">
-            <FontAwesomeIcon icon={faCircle} size="m" color="#f50" />
-            <FontAwesomeIcon icon={faStar} size="xs" color="#fff" />
+          <span className="artistNameToolTipContainer" title={`Visit ${name}'s Profile`}>
+            {name}
+          </span>
+          <span className="fa-layers fa-fw" style={{ marginLeft: '3px' }}>
+            <span style={{ fontSize: '10px' }}>
+              <FontAwesomeIcon icon={faCircle} size="m" color="#f50" />
+            </span>
+            <span style={{ fontSize: '8px' }}>
+              <FontAwesomeIcon icon={faStar} size="xs" color="#fff" />
+            </span>
           </span>
 
         </div>
-        <div id="followAndTrackCount">
-          <span id={followCount}>
-            <FontAwesomeIcon icon={faUserFriends} />
-            {' '}
-
+        <div className="followAndTrackCount">
+          <span className="ArtistFollowBadge" id={followCount} title={`${followCount.toLocaleString()} followers`}>
+            <span style={{ marginRight: '3px' }}>
+              <FontAwesomeIcon color="#999" icon={faUserFriends} />
+            </span>
             <NumericLabel params={params}>{followCount}</NumericLabel>
           </span>
-          {'   '}
-          <FontAwesomeIcon color="#666" icon={faHeadphones} />
-          {' '}
-          {trackCount}
+          <span className="ArtistTrackBadge" title={`${trackCount} tracks`}>
+            <span style={{ marginRight: '3px' }}>
+              <FontAwesomeIcon color="#666" padding-right="3px" icon={faHeadphones} />
+            </span>
+            {trackCount}
+          </span>
+
         </div>
-        {/* <button id="followingButton" onClick={this.toggleFollow}>{isFollowing ? 'Following' : 'Follow'}</button> */}
         <FollowButton isFollowing={isFollowing} toggleFollow={this.toggleFollow} />
       </div>
     );

@@ -11,27 +11,30 @@ b {
     padding: 15px;
 }
 .artistWidget {
-    height: 500px;
-    width: 150px;
+    height: 100%;
+    width: 20%;
+    min-width: 120px;
     font: 14px "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Verdana,Tahoma,sans-serif;
     color: #333;
     display: block;
-
+    margin: 0 1%
 }
 
 .songDetailWidgetSmall {
-    width: 400px;
+    width: 80%;
     height: 170px;
     font: 12px "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Verdana,Tahoma,sans-serif;
     color: #333;
     overflow: hidden;
+    min-width: 100px;
 }
 .songDetailWidgetExpanded{
-    width: 400px;
+    width: 80%;
     height: auto;
     font: 12px "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Verdana,Tahoma,sans-serif;
     color: #333;
     overflow: visible;
+    min-width: 100px;
 }
 .detailsContainer {
     padding: 10px 0;
@@ -73,7 +76,7 @@ img {
     border-radius: 50%;
     box-shadow: rgba(0,0,0,.1)0 0 0 1px inset;
     text-align: center;
-    position: relative;
+    
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;
@@ -86,18 +89,31 @@ img {
     font-size: 12px;
     color: #999;
 }
-#followAndTrackCount {
+.followAndTrackCount {
     color: #999;
     font-size: 11px;
     line-height: 12px;
     margin-bottom:10px;
 }
+
+.ArtistTrackBadge {
+    color: #999;
+    padding: 0 5px;
+    cursor: pointer;
+}
+
+.ArtistFollowBadge {
+    color: #999;
+    padding-right: 5px;
+    cursor: pointer;
+}
+
 #artistName {
     font: 14px "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Verdana,Tahoma,sans-serif;
     color: #333;
     margin-bottom: 10px;
     margin-top: 5px;
-    cursor: pointer;
+
 }
 
 #followArtistButton {
@@ -121,7 +137,7 @@ img {
     box-sizing: border-box;
 }
 #followingArtistButton {
-    border-color: #f50;
+    border-color: #e5e5e5;
     color: #f50;
     background-color: #fff;
     font-size: 11px;
@@ -140,6 +156,9 @@ img {
     box-sizing: border-box;
 
 }
+#followingArtistButton:hover {
+    border-color: #f50;
+}
 .showMoreText{
     width: 400px;
     height: 20px;
@@ -151,4 +170,10 @@ img {
 }
 .showMoreText:active {
     color: #333;
+}
+
+.artistNameToolTipContainer {
+    cursor: pointer;
+    width: 10%;
+
 }
