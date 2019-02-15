@@ -132,12 +132,17 @@
     cursor: pointer;
 }
 
+.artistWidget .ArtistTrackBadge:hover {
+    color: #666;
+}
 .artistWidget .ArtistFollowBadge {
     color: #999;
     padding-right: 5px;
     cursor: pointer;
 }
-
+.artistWidget .ArtistFollowBadge:hover {
+    color: #666
+}
 #artistName {
     font: 14px "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Verdana,Tahoma,sans-serif;
     color: #333;
