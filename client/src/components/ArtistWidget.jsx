@@ -29,8 +29,6 @@ class ArtistWidget extends React.Component {
       trackCount: null,
       isFollowing: null,
     };
-
-    this.toggleFollow = this.toggleFollow.bind(this);
   }
 
   componentDidMount() {
@@ -43,14 +41,6 @@ class ArtistWidget extends React.Component {
       isFollowing: artistData[random].is_followed,
     });
   }
-
-  toggleFollow() {
-    const { isFollowing } = this.state;
-    this.setState({
-      isFollowing: !isFollowing,
-    });
-  }
-
 
   render() {
     const {
@@ -102,7 +92,7 @@ class ArtistWidget extends React.Component {
           </span>
 
         </div>
-        <FollowButton isFollowing={isFollowing} toggleFollow={this.toggleFollow} />
+        <FollowButton isFollowing={isFollowing} />
         <div className="reportButton" style={{ marginTop: '30px' }}>
           <span className="fa-layers fa-fw">
             <FontAwesomeIcon icon={faSquare} size="1x" transform={{ rotate: 45 }} />

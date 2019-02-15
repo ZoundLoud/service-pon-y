@@ -7,6 +7,7 @@ import classNames from 'classnames';
 import NumericLabel from 'react-pretty-numbers';
 import songData from '../data/songData';
 import artistData from '../data/artistData';
+import FollowButton from './FollowButton';
 
 function SongDetail({ label, value }) {
   if (!value) {
@@ -104,7 +105,7 @@ class SongDetailWidget extends React.Component {
                 {artistObject.no_of_followers}
               </small>
             </div>
-            {/* <FollowButton isFollowing={artistObject.is_followed} toggleFollow="" /> */}
+            <FollowButton isFollowing={artistObject.is_followed} />
           </span>
           {' '}
         </span>);
