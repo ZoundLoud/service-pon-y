@@ -23,9 +23,6 @@ class App extends React.Component {
           artistIdx: Math.floor(Math.random() * data.length),
         });
         return data;
-      })
-      .then((data) => {
-        console.log(`Success! Data: ${data}`);
       });
 
     fetch('http://localhost:3000/songinfo').then(response => response.json())
@@ -34,9 +31,6 @@ class App extends React.Component {
           songData: data,
         });
         return data;
-      })
-      .then((data) => {
-        console.log(`Success! Data: ${data}`);
       });
   }
 

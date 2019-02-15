@@ -23,16 +23,10 @@ function ArtistWidget({ artistData }) {
     return null;
   }
 
-  const {
-    avatar_picture, artist_name, no_of_followers, no_of_tracks, is_followed,
-  } = artistData;
-  return (
-    <div className="artistWidget">
-      <img src={avatar_picture} alt="avatar" />
-      <div id="artistName">
-        <span className="artistNameToolTipContainer" title={`Visit ${artist_name}'s Profile`}>
-          {artist_name}
-        </span>
+  function isPro(pro_status) {
+    if (pro_status) {
+      return (
+
         <span className="fa-layers fa-fw" style={{ marginLeft: '3px' }}>
           <span style={{ fontSize: '10px' }}>
             <FontAwesomeIcon icon={faCircle} size="m" color="#f50" />
@@ -41,7 +35,24 @@ function ArtistWidget({ artistData }) {
             <FontAwesomeIcon icon={faStar} size="xs" color="#fff" />
           </span>
         </span>
+      );
+    }
+    return null;
+  }
 
+  const {
+    avatar_picture, artist_name, no_of_followers, no_of_tracks, is_followed, pro_status,
+  } = artistData;
+
+  console.log('pro status: ', pro_status);
+  return (
+    <div className="artistWidget">
+      <img src={avatar_picture} alt="avatar" />
+      <div id="artistName">
+        <span className="artistNameToolTipContainer" title={`Visit ${artist_name}'s Profile`}>
+          {artist_name}
+        </span>
+        {isPro(pro_status)}
       </div>
       <div className="followAndTrackCount">
         <span className="ArtistFollowBadge" id={no_of_followers} title={`${no_of_followers.toLocaleString()} followers`}>
