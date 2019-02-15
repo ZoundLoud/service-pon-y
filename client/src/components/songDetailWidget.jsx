@@ -5,8 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faAngleUp, faUserFriends } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
 import NumericLabel from 'react-pretty-numbers';
-import songData from '../data/songData';
-import artistData from '../data/artistData';
 import FollowButton from './FollowButton';
 
 function SongDetail({ label, value }) {
@@ -32,44 +30,28 @@ function SongDetail({ label, value }) {
   );
 }
 
-
-class SongDetailWidget extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      description: songData[0].description_text,
-      tags: songData[3].tags,
-      license: songData[0].license,
-      releasedBy: songData[0].released_by,
-      releaseDate: songData[0].release_date,
-      pline: songData[0].p_line,
-
-    };
-    this.expandDescription = this.expandDescription.bind(this);
-    this.parseAtInDescription = this.parseAtInDescription.bind(this);
+function SongDetailWidget({
+  artistData, songData, truncated, toggleTruncate,
+}) {
+  if (!songData) {
+    return null;
   }
-
-
-  componentDidMount() {
-    const random = Math.floor(Math.random() * 100);
-    this.setState({
-      description: songData[0].description_text,
-      tags: songData[random].tags,
-      license: songData[random].license,
-      releasedBy: songData[random].released_by,
-      releaseDate: songData[random].release_date,
-      pline: songData[random].p_line,
-    });
+  if (!artistData) {
+    return null;
   }
+  function parseAtInDescription() {
+    const { description_text } = songData;
 
-  parseAtInDescription() {
-    const { description } = this.state;
-
+    if (!songData) {
+      return null;
+    }
+    if (!artistData) {
+      return null;
+    }
     const regexp = /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
 
     const parsedDescription = [];
-    const descriptionArray = description.split(' ');
+    const descriptionArray = description_text.split(' ');
 
     const params = {
       justification: 'L',
@@ -131,60 +113,58 @@ class SongDetailWidget extends React.Component {
     );
   }
 
-  expandDescription() {
-    // const { this.proptruncated } = this.props;
-    if (this.props.truncated) {
+  function expandDescription() {
+    if (truncated) {
       return (
-        <div className="showMoreText" onClick={this.props.toggleTruncate}>
+        <div className="showMoreText" onClick={toggleTruncate}>
 Show more
           <span><FontAwesomeIcon icon={faAngleDown} /></span>
         </div>
       );
     }
     return (
-      <div className="showMoreText" onClick={this.props.toggleTruncate}>
+      <div className="showMoreText" onClick={toggleTruncate}>
 Show less
         <span><FontAwesomeIcon icon={faAngleUp} /></span>
       </div>
     );
   }
 
-  render() {
-    const {
-      description, license, releaseDate, releasedBy, pline, tags,
-    } = this.state;
-    // const { truncated, toggleTruncate } = this.props;
-    const array = tags.split(' ');
-    const tag = array.map(el => (
-      <span className="tag">
+
+  const {
+    license, release_date, released_by, p_line, tags,
+  } = songData;
+
+  const array = tags.split(' ');
+  const tag = array.map(el => (
+    <span className="tag">
         #
-        {el}
-      </span>
-    ));
+      {el}
+    </span>
+  ));
 
-    const truncatedClassName = this.props.truncated ? 'songDetailWidgetSmall' : 'songDetailWidgetExpanded';
-    return (
-      <div id="songDetailContainer" className="songDetailContainer">
-        <div className={truncatedClassName}>
+  const truncatedClassName = truncated ? 'songDetailWidgetSmall' : 'songDetailWidgetExpanded';
+  return (
+    <div id="songDetailContainer" className="songDetailContainer">
+      <div className={truncatedClassName}>
 
-          <div style={{ whiteSpace: 'pre-wrap' }}>{this.parseAtInDescription()}</div>
-          <div className="detailsContainer">
-            <SongDetail label="Released By:" value={releasedBy} />
-            <SongDetail label="Release Date:" value={releaseDate} />
-            <SongDetail label="P-line:" value={pline} />
-            <SongDetail label="Licensed By:" value={license} />
-
-          </div>
-          <div />
-          <div className="descriptionTagContainer">
-            {tag}
-          </div>
+        <div style={{ whiteSpace: 'pre-wrap' }}>{parseAtInDescription()}</div>
+        <div className="detailsContainer">
+          <SongDetail label="Released By:" value={released_by} />
+          <SongDetail label="Release Date:" value={release_date} />
+          <SongDetail label="P-line:" value={p_line} />
+          <SongDetail label="Licensed By:" value={license} />
 
         </div>
-        {this.expandDescription()}
+        <div />
+        <div className="descriptionTagContainer">
+          {tag}
+        </div>
+
       </div>
-    );
-  }
+      {expandDescription()}
+    </div>
+  );
 }
 
 export default SongDetailWidget;
