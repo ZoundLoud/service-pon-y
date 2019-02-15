@@ -83,7 +83,7 @@ function SongDetailWidget({
             <div className="popup">
               <img src={artistObject.avatar_picture} />
               <div className="songComponentAtArtistName" title={`Visit ${artistObject.artist_name}'s profile`}>{artistObject.artist_name}</div>
-              <div className="songComponentAtFollows" title={`${artistObject.no_of_followers} followers`}>
+              <div className="songComponentAtFollows" title={`${artistObject.no_of_followers.toLocaleString()} followers`}>
                 <FontAwesomeIcon icon={faUserFriends} color="#999" />
                 {' '}
                 <small>
@@ -95,12 +95,12 @@ function SongDetailWidget({
             <i />
           </span>
           {' '}
-                               </span>);
+        </span>);
       } else if (regexp.test(word)) {
         parsedDescription.push(<span className="songDescriptionURL">
           {`${word} `}
           {' '}
-        </span>);
+                               </span>);
       } else {
         parsedDescription.push(`${word} `);
       }

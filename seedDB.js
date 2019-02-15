@@ -8,23 +8,32 @@ const connection = mysql.createConnection({
 });
 
 connection.connect();
-
+const artistNames = [];
 const artistvalues = [];
 const songvalues = [];
+const urls = ['www.google.com', 'www.instagram.com', 'https://github.com/ZoundLoud', 'https://expressjs.com/', 'https://developer.mozilla.org/en-US/', 'https://twitter.com/'];
+const songLicence = ['All Rights Reserved', 'Creative Commons'];
 for (let i = 0; i < 100; i += 1) {
-  const artistname = faker.lorem.word();
+  if (i % 3 === 0) {
+    artistNames.push(faker.name.firstName());
+  } else if (i % 2 === 0 && i % 3 !== 0) {
+    artistNames.push(faker.name.lastName());
+  } else {
+    artistNames.push(faker.lorem.word());
+  }
+}
+
+for (let i = 0; i < 100; i += 1) {
+  let text = '';
+  const pline = `℗ ${faker.company.companyName() }${faker.company.companySuffix()}`;
+  text = text.concat(faker.lorem.paragraphs(2), ' @', artistNames[Math.floor(Math.random() * artistNames.length)], ' ', faker.lorem.paragraph(1), ' ', urls[Math.floor(Math.random() * urls.length)], ' ', faker.lorem.paragraph(2));
+
 
   artistvalues.push([
-    artistname,
+    artistNames[i],
     faker.image.avatar(),
-    faker.random.number({
-      min: 0,
-      max: 5000000,
-    }),
-    faker.random.number({
-      min: 0,
-      max: 30,
-    }),
+    Math.floor(Math.random() * 200000),
+    Math.floor(Math.random() * 80),
     faker.random.number({
       min: 0,
       max: 1,
@@ -36,14 +45,14 @@ for (let i = 0; i < 100; i += 1) {
   ]);
 
   songvalues.push([
-    faker.lorem.words(Math.floor(Math.random * 5)),
-    artistname,
-    faker.lorem.words(3),
-    faker.lorem.paragraphs(4),
-    artistname,
-    faker.date.past(),
-    faker.lorem.words(2),
-    faker.lorem.words(),
+    faker.lorem.words(Math.floor(Math.random * 5)), // song name
+    artistNames[Math.floor(Math.random() * 100)], // artist name
+    faker.lorem.words(3), // license
+    text, // description text
+    faker.company.companyName(), // released by
+    faker.date.past(), // release date
+    pline, // pline
+    faker.lorem.words(), // tags
   ]);
 }
 
