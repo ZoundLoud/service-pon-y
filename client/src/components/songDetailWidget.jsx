@@ -70,17 +70,25 @@ class SongDetailWidget extends React.Component {
     const descriptionArray = description.split(' ');
     descriptionArray.forEach((word) => {
       if (word[0] === '@') {
+        const artistName = word.substring(1);
+        let artistObject = null;
+        for (let i = 0; i < 100; i++) {
+          if (artistName === artistData[i].artist_name) {
+            artistObject = artistData[i];
+            break;
+          }
+        }
         parsedDescription.push(<span className="songDescriptionAt">
           {word}
           {' '}
           <span>
-            <img src={artistData[35].avatar_picture} />
-            <div className="songComponentAtArtistName" title={`Visit ${artistData[35].artist_name}'s profile`}>{artistData[35].artist_name}</div>
-            <div className="songComponentAtFollows" title={`${artistData[35].no_of_followers} followers`}>
+            <img src={artistObject.avatar_picture} />
+            <div className="songComponentAtArtistName" title={`Visit ${artistObject.artist_name}'s profile`}>{artistObject.artist_name}</div>
+            <div className="songComponentAtFollows" title={`${artistObject.no_of_followers} followers`}>
               <FontAwesomeIcon icon={faUserFriends} color="#999" />
               {' '}
               <small>
-                {artistData[35].no_of_followers}
+                {artistObject.no_of_followers}
               </small>
             </div>
           </span>
