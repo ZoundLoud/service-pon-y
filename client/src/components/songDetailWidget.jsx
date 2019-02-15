@@ -76,7 +76,7 @@ class SongDetailWidget extends React.Component {
       locales: 'en-AU',
       currency: false,
       percentage: false,
-      precision: 1,
+      precision: 0,
       commafy: true,
       shortFormat: false,
       title: false,
@@ -92,28 +92,33 @@ class SongDetailWidget extends React.Component {
             break;
           }
         }
-        parsedDescription.push(<span className="songDescriptionAt">
+        const followers = artistObject.no_of_followers;
+
+        parsedDescription.push(<span className="songDescriptionAt tooltip">
           {word}
           {' '}
-          <span>
-            <img src={artistObject.avatar_picture} />
-            <div className="songComponentAtArtistName" title={`Visit ${artistObject.artist_name}'s profile`}>{artistObject.artist_name}</div>
-            <div className="songComponentAtFollows" title={`${artistObject.no_of_followers} followers`}>
-              <FontAwesomeIcon icon={faUserFriends} color="#999" />
-              {' '}
-              <small>
-                {artistObject.no_of_followers}
-              </small>
+          <span className="bottom">
+            <div className="popup">
+              <img src={artistObject.avatar_picture} />
+              <div className="songComponentAtArtistName" title={`Visit ${artistObject.artist_name}'s profile`}>{artistObject.artist_name}</div>
+              <div className="songComponentAtFollows" title={`${artistObject.no_of_followers} followers`}>
+                <FontAwesomeIcon icon={faUserFriends} color="#999" />
+                {' '}
+                <small>
+                  {<NumericLabel params={params}>{followers}</NumericLabel>}
+                </small>
+              </div>
+              <FollowButton isFollowing={artistObject.is_followed} toggleFollow="" />
             </div>
-            <FollowButton isFollowing={artistObject.is_followed} />
+            <i />
           </span>
           {' '}
-        </span>);
+                               </span>);
       } else if (regexp.test(word)) {
         parsedDescription.push(<span className="songDescriptionURL">
           {`${word} `}
           {' '}
-                               </span>);
+        </span>);
       } else {
         parsedDescription.push(`${word} `);
       }
@@ -159,7 +164,7 @@ Show less
 
     const truncatedClassName = this.props.truncated ? 'songDetailWidgetSmall' : 'songDetailWidgetExpanded';
     return (
-      <div id="songDetailContainer">
+      <div id="songDetailContainer" className="songDetailContainer">
         <div className={truncatedClassName}>
 
           <div style={{ whiteSpace: 'pre-wrap' }}>{this.parseAtInDescription()}</div>

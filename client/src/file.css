@@ -1,4 +1,4 @@
-b {
+.songDetailContainer b {
     display: block;
     padding: 5px 0px;
 }
@@ -20,7 +20,7 @@ b {
     margin: 0 1%
 }
 
-.songDetailWidgetSmall {
+.songDetailContainer .songDetailWidgetSmall {
     width: 80%;
     height: 170px;
     font: 12px "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Verdana,Tahoma,sans-serif;
@@ -31,7 +31,7 @@ b {
     
 }
 
-.songDetailWidgetSmall::after {
+.songDetailContainer .songDetailWidgetSmall::after {
     content: ' ';
     position: absolute;
     left: 0;
@@ -49,7 +49,7 @@ b {
     background-clip: initial;
     background-color: initial;
 }
-.songDetailWidgetExpanded{
+.songDetailContainer .songDetailWidgetExpanded{
     width: 80%;
     height: auto;
     font: 12px "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Verdana,Tahoma,sans-serif;
@@ -58,13 +58,13 @@ b {
     min-width: 100px;
     z-index: 0;
 }
-.detailsContainer {
+.songDetailContainer .detailsContainer {
     padding: 10px 0;
 }
-.descriptionTagContainer {
+.songDetailContainer .descriptionTagContainer {
     padding-bottom: 35px;
 }
-.tag {
+.songDetailContainer .tag {
     float: left;
     margin: 0 6px 6px 0;
     position: relative;
@@ -89,10 +89,11 @@ b {
     margin-right: 3px;
 }
 
-.tag:hover {
+.songDetailContainer .tag:hover {
     background: #666;
 }
-img {
+
+.artistWidget img {
     height: 120px;
     width: 120px;
     border-radius: 50%;
@@ -111,20 +112,21 @@ img {
     font-size: 12px;
     color: #999;
 }
-.followAndTrackCount {
+
+.artistWidget .followAndTrackCount {
     color: #999;
     font-size: 11px;
     line-height: 12px;
     margin-bottom:10px;
 }
 
-.ArtistTrackBadge {
+.artistWidget .ArtistTrackBadge {
     color: #999;
     padding: 0 5px;
     cursor: pointer;
 }
 
-.ArtistFollowBadge {
+.artistWidget .ArtistFollowBadge {
     color: #999;
     padding-right: 5px;
     cursor: pointer;
@@ -158,6 +160,7 @@ img {
     vertical-align: baseline;
     box-sizing: border-box;
 }
+
 #followingArtistButton {
     border-color: #e5e5e5;
     color: #f50;
@@ -178,58 +181,57 @@ img {
     box-sizing: border-box;
 
 }
+
 #followingArtistButton:hover {
     border-color: #f50;
 }
-.showMoreText{
+
+.songDetailContainer .showMoreText{
     width: 400px;
     height: 20px;
     color: #999;
 }
-.showMoreText:hover {
+.songDetailContainer .showMoreText:hover {
     color: #333;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
-.showMoreText:active {
+.songDetailContainer .showMoreText:active {
     color: #333;
 }
 
-.artistNameToolTipContainer {
+.songDetailContainer .artistNameToolTipContainer {
     cursor: pointer;
     width: 10%;
-
 }
 
-.songDescriptionAt {
+.songDetailContainer .songDescriptionAt {
     color: #38d;
     cursor: pointer;
     display: inline-block;
     position: relative;
 }
 
-.songDescriptionAt span {
+.songDetailContainer .popup {
     display: none;
-}
-.songDescriptionAt:hover > span {
-    padding: 20px;
-    display: flex;
     flex-direction: column;
     align-items: center;
-    position: absolute;
-    top: 20px;
+    top: 50px;
     right: calc(50% - 100px);
-    width:150px;
+    width:120px;
     color: #333;
     background: #fff;
     min-height:199px;
     text-align: center;
-    visibility: visible;
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 7px -1px rgba(0, 0, 0, 0.4);
     z-index: 10;
+    cursor: default;
 }
-.songDescriptionAt:hover span img{
 
+.songDetailContainer .songDescriptionAt:hover .popup {
+    display: flex;
+}
+
+
+.songDetailContainer .popup img{
     border-radius: 50%;
     text-align: center;
     position: center;
@@ -243,7 +245,7 @@ img {
     bottom: 100%;
 }
 
-.songDescriptionAt:hover > span .songComponentAtArtistName{
+.songDetailContainer .popup .songComponentAtArtistName{
     text-align: center;
     position: center;
     background-repeat: no-repeat;
@@ -251,36 +253,92 @@ img {
     font-size: 14px;
     font-weight:100;
     color: #333;
+    padding: 5px 0;
+    cursor:pointer;
 }
 
-.songDescriptionAt:hover > span small{
+.songDetailContainer .popup .songComponentAtFollows {
+    cursor: pointer;
+    padding-bottom: 10px;
+}
+.songDetailContainer .popup small{
     text-align: center;
     position: center;
     background-repeat: no-repeat;
     font-weight:100;
     color: #666;
 }
-.songDescriptionAt:hover {
+
+.songDetailContainer .songDescriptionAt:hover {
     color: #666;
     cursor: pointer;
 }
 
-.reportButton {
+.artistWidget .reportButton {
     font-size: 10px;
     color: #666;
     cursor: pointer;
 }
 
-.reportButton:hover {
+.artistWidget .reportButton:hover {
     color:#333;
     cursor: pointer;
 }
 
-.songDescriptionURL {
+.songDetailContainer .songDescriptionURL {
     color: #38d;
     cursor: pointer;
 }
-.songDescriptionURL:hover {
+.songDetailContainer .songDescriptionURL:hover {
     color: #666;
     cursor: pointer;
+}
+
+.tooltip {
+    display:inline-block;
+    position:relative;
+    border-bottom:1px dotted #666;
+    text-align:left;
+}
+
+.tooltip .bottom {
+    top:25px;
+    left:50%;
+    transform:translate(-50%, 0);
+    padding:10px;
+    color:#333;
+    background-color:#fff;
+    font-weight:normal;
+    font-size:13px;
+    border-radius:8px;
+    position:absolute;
+    z-index:99999999;
+    box-sizing:border-box;
+    border:1px solid #999;box-shadow:0 1px 8px rgba(0,0,0,0.5);
+    display:none;
+}
+
+.tooltip:hover .bottom {
+    display:block;
+}
+
+.tooltip .bottom i {
+    position:absolute;
+    bottom:100%;
+    left:50%;
+    margin-left:-12px;
+    width:24px;
+    height:12px;
+    overflow:hidden;
+}
+
+.tooltip .bottom i::after {
+    content:'';
+    position:absolute;
+    width:12px;
+    height:12px;
+    left:50%;
+    transform:translate(-50%,50%) rotate(45deg);
+    background-color:#fff;
+    border:1px solid #999;box-shadow:0 1px 8px rgba(0,0,0,0.5);
 }
