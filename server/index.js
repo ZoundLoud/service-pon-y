@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');
 const db = require('./db');
 
 const app = express();
@@ -8,6 +9,7 @@ const port = 3000;
 
 app.use(bodyParser.json());
 
+app.use(express.static(path.join(__dirname, '../client/dist')));
 
 app.get('/artistinfo', (req, res) => {
   db.artistWidget((data) => {

@@ -2,10 +2,12 @@ import React from 'react';
 import Moment from 'react-moment';
 import 'moment-timezone';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDown, faAngleUp, faUserFriends } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
+import NumericLabel from 'react-pretty-numbers';
 import songData from '../data/songData';
-
+import artistData from '../data/artistData';
+import FollowButton from './FollowButton';
 
 function SongDetail({ label, value }) {
   if (!value) {
@@ -45,18 +47,88 @@ class SongDetailWidget extends React.Component {
 
     };
     this.expandDescription = this.expandDescription.bind(this);
+    this.parseAtInDescription = this.parseAtInDescription.bind(this);
   }
+
 
   componentDidMount() {
     const random = Math.floor(Math.random() * 100);
     this.setState({
-      description: songData[random].description_text,
+      description: songData[0].description_text,
       tags: songData[random].tags,
       license: songData[random].license,
       releasedBy: songData[random].released_by,
       releaseDate: songData[random].release_date,
       pline: songData[random].p_line,
     });
+  }
+
+  parseAtInDescription() {
+    const { description } = this.state;
+
+    const regexp = /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
+
+    const parsedDescription = [];
+    const descriptionArray = description.split(' ');
+
+    const params = {
+      justification: 'L',
+      locales: 'en-AU',
+      currency: false,
+      percentage: false,
+      precision: 0,
+      commafy: true,
+      shortFormat: false,
+      title: false,
+
+    };
+    descriptionArray.forEach((word) => {
+      if (word[0] === '@') {
+        const artistName = word.substring(1);
+        let artistObject = null;
+        for (let i = 0; i < 100; i++) {
+          if (artistName === artistData[i].artist_name) {
+            artistObject = artistData[i];
+            break;
+          }
+        }
+        const followers = artistObject.no_of_followers;
+
+        parsedDescription.push(<span className="songDescriptionAt tooltip">
+          {word}
+          {' '}
+          <span className="bottom">
+            <div className="popup">
+              <img src={artistObject.avatar_picture} />
+              <div className="songComponentAtArtistName" title={`Visit ${artistObject.artist_name}'s profile`}>{artistObject.artist_name}</div>
+              <div className="songComponentAtFollows" title={`${artistObject.no_of_followers} followers`}>
+                <FontAwesomeIcon icon={faUserFriends} color="#999" />
+                {' '}
+                <small>
+                  {<NumericLabel params={params}>{followers}</NumericLabel>}
+                </small>
+              </div>
+              <FollowButton isFollowing={artistObject.is_followed} toggleFollow="" />
+            </div>
+            <i />
+          </span>
+          {' '}
+                               </span>);
+      } else if (regexp.test(word)) {
+        parsedDescription.push(<span className="songDescriptionURL">
+          {`${word} `}
+          {' '}
+        </span>);
+      } else {
+        parsedDescription.push(`${word} `);
+      }
+    });
+
+    return (
+      <div>
+        {parsedDescription}
+      </div>
+    );
   }
 
   expandDescription() {
@@ -92,9 +164,10 @@ Show less
 
     const truncatedClassName = this.props.truncated ? 'songDetailWidgetSmall' : 'songDetailWidgetExpanded';
     return (
-      <div id="songDetailContainer">
+      <div id="songDetailContainer" className="songDetailContainer">
         <div className={truncatedClassName}>
-          <div>{description}</div>
+
+          <div style={{ whiteSpace: 'pre-wrap' }}>{this.parseAtInDescription()}</div>
           <div className="detailsContainer">
             <SongDetail label="Released By:" value={releasedBy} />
             <SongDetail label="Release Date:" value={releaseDate} />
