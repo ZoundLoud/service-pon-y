@@ -5,18 +5,18 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import NumericLabel from 'react-pretty-numbers';
 import artistData from '../data/artistData';
-
-function FollowButton({ isFollowing, toggleFollow }) {
-  const followToolTip = isFollowing ? 'Unfollow' : 'Follow';
-  if (isFollowing) {
-    return (
-      <button id="followingArtistButton" onClick={toggleFollow} title={followToolTip}>Following</button>
-    );
-  }
-  return (
-    <button id="followArtistButton" onClick={toggleFollow} title={followToolTip}>Follow</button>
-  );
-}
+import FollowButton from './FollowButton';
+// function FollowButton({ isFollowing, toggleFollow }) {
+//   const followToolTip = isFollowing ? 'Unfollow' : 'Follow';
+//   if (isFollowing) {
+//     return (
+//       <button id="followingArtistButton" onClick={toggleFollow} title={followToolTip}>Following</button>
+//     );
+//   }
+//   return (
+//     <button id="followArtistButton" onClick={toggleFollow} title={followToolTip}>Follow</button>
+//   );
+// }
 
 class ArtistWidget extends React.Component {
   constructor(props) {

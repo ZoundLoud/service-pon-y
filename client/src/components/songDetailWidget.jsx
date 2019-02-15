@@ -4,6 +4,7 @@ import 'moment-timezone';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faAngleUp, faUserFriends } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
+import NumericLabel from 'react-pretty-numbers';
 import songData from '../data/songData';
 import artistData from '../data/artistData';
 
@@ -68,6 +69,18 @@ class SongDetailWidget extends React.Component {
 
     const parsedDescription = [];
     const descriptionArray = description.split(' ');
+
+    const params = {
+      justification: 'L',
+      locales: 'en-AU',
+      currency: false,
+      percentage: false,
+      precision: 1,
+      commafy: true,
+      shortFormat: false,
+      title: false,
+
+    };
     descriptionArray.forEach((word) => {
       if (word[0] === '@') {
         const artistName = word.substring(1);
@@ -91,14 +104,15 @@ class SongDetailWidget extends React.Component {
                 {artistObject.no_of_followers}
               </small>
             </div>
+            {/* <FollowButton isFollowing={artistObject.is_followed} toggleFollow="" /> */}
           </span>
           {' '}
-                               </span>);
+        </span>);
       } else if (regexp.test(word)) {
         parsedDescription.push(<span className="songDescriptionURL">
           {`${word} `}
           {' '}
-        </span>);
+                               </span>);
       } else {
         parsedDescription.push(`${word} `);
       }
