@@ -8,7 +8,7 @@ import NumericLabel from 'react-pretty-numbers';
 import FollowButton from './FollowButton';
 
 function SongDetail({ label, value }) {
-  if (!value) {
+  if (!value || value === '') {
     return null;
   }
   if (label === 'Release Date:') {
@@ -95,12 +95,12 @@ function SongDetailWidget({
             <i />
           </span>
           {' '}
-        </span>);
+                               </span>);
       } else if (regexp.test(word)) {
         parsedDescription.push(<span className="songDescriptionURL">
           {`${word} `}
           {' '}
-                               </span>);
+        </span>);
       } else {
         parsedDescription.push(`${word} `);
       }
