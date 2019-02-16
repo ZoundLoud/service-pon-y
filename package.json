@@ -12,9 +12,10 @@
     "build": "webpack --config ./webpack.config.js --mode production",
     "db": "mysql -u root zoundloud <schema.sql",
     "seed": "node seedDB.js",
-    "test": "jest --verbose --coverage"
+    "test": "jest --verbose --coverage -u"
   },
   "jest": {
+    "setupFiles": ["./setupTests.js"],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
     ]
