@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArtistWidget should render correctly in "debug" mode 1`] = `""`;
+
+exports[`should be possible to click Follow Button 1`] = `
+<FollowButton>
+  <button
+    id="followingArtistButton"
+    onClick={[Function]}
+    title="Unfollow"
+  >
+    Following
+  </button>
+</FollowButton>
+`;
