@@ -2,32 +2,10 @@
     display: block;
     padding: 5px 0px;
 }
-.container {
-    display: flex;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding: 15px;
-    width: 900px;
-}
-.artistWidget {
-    float: left;
-    width: 100%;
-    height: 100%;
-    padding: 0 20px;
-    min-width: 120px;
-    font: 14px "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Verdana,Tahoma,sans-serif;
-    color: #333;
-    display: block;
-    margin: 0 1%;
-    flex-basis: 12%;
-}
 
 .songDetailContainer .songDetailWidgetSmall {
     float:left;
     width: 100%;
-    /* width: 80%; */
     height: 170px;
     font: 12px "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Verdana,Tahoma,sans-serif;
     color: #333;
@@ -99,19 +77,7 @@
     background: #666;
 }
 
-.artistWidget img {
-    height: 120px;
-    width: 120px;
-    border-radius: 50%;
-    box-shadow: rgba(0,0,0,.1)0 0 0 1px inset;
-    text-align: center;
-    
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 50% 50%;
-    cursor: pointer;
-    object-fit: cover;
-}
+
 
 #songDetailContainer {
     font: 14px "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Verdana,Tahoma,sans-serif;
@@ -119,83 +85,9 @@
     color: #999;
 }
 
-.artistWidget .followAndTrackCount {
-    color: #999;
-    font-size: 11px;
-    line-height: 12px;
-    margin-bottom:10px;
-}
 
-.artistWidget .ArtistTrackBadge {
-    color: #999;
-    padding: 0 5px;
-    cursor: pointer;
-}
 
-.artistWidget .ArtistTrackBadge:hover {
-    color: #666;
-}
-.artistWidget .ArtistFollowBadge {
-    color: #999;
-    padding-right: 5px;
-    cursor: pointer;
-}
-.artistWidget .ArtistFollowBadge:hover {
-    color: #666
-}
-#artistName {
-    font: 14px "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Verdana,Tahoma,sans-serif;
-    color: #333;
-    margin-bottom: 10px;
-    margin-top: 5px;
 
-}
-
-#followArtistButton {
-    background-color: #f50;
-    border-color: #f50;
-    color: #fff;
-    font-size: 11px;
-    padding: 2px 9px 2px 8px;
-    height: 22px;
-    line-height: 16px;
-    display: inline-block;
-    position: relative;
-    cursor: pointer;
-    border: 1px solid #e5e5e5;
-    border-radius: 3px;
-    white-space: nowrap;
-    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
-    font-weight: 100;
-    text-align: center;
-    vertical-align: baseline;
-    box-sizing: border-box;
-}
-
-#followingArtistButton {
-    border-color: #e5e5e5;
-    color: #f50;
-    background-color: #fff;
-    font-size: 11px;
-    padding: 2px 9px 2px 8px;
-    height: 22px;
-    line-height: 16px;
-    display: inline-block;
-    position: relative;
-    cursor: pointer;
-    border-radius: 3px;
-    white-space: nowrap;
-    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
-    font-weight: 100;
-    text-align: center;
-    vertical-align: baseline;
-    box-sizing: border-box;
-
-}
-
-#followingArtistButton:hover {
-    border-color: #f50;
-}
 
 .songDetailContainer .showMoreText{
     width: 400px;
@@ -208,11 +100,6 @@
 }
 .songDetailContainer .showMoreText:active {
     color: #333;
-}
-
-.songDetailContainer .artistNameToolTipContainer {
-    cursor: pointer;
-    width: 10%;
 }
 
 .songDetailContainer .songDescriptionAt {
@@ -285,17 +172,6 @@
     cursor: pointer;
 }
 
-.artistWidget .reportButton {
-    font-size: 10px;
-    color: #666;
-    cursor: pointer;
-}
-
-.artistWidget .reportButton:hover {
-    color:#333;
-    cursor: pointer;
-}
-
 .songDetailContainer .songDescriptionURL {
     color: #38d;
     cursor: pointer;
@@ -305,13 +181,13 @@
     cursor: pointer;
 }
 
-.tooltip {
+.songDetailContainer .tooltip {
     display:inline-block;
     position:relative;
     text-align:left;
 }
 
-.tooltip .bottom {
+.songDetailContainer .tooltip .bottom {
     top:25px;
     left:50%;
     transform:translate(-50%, 0);
@@ -328,11 +204,11 @@
     display:none;
 }
 
-.tooltip:hover .bottom {
+.songDetailContainer .tooltip:hover .bottom {
     display:block;
 }
 
-.tooltip .bottom i {
+.songDetailContainer .tooltip .bottom i {
     position:absolute;
     bottom:100%;
     left:50%;
@@ -342,7 +218,7 @@
     overflow:hidden;
 }
 
-.tooltip .bottom i::after {
+.songDetailContainer .tooltip .bottom i::after {
     content:'';
     position:absolute;
     width:12px;

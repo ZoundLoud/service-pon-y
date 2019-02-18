@@ -1,4 +1,5 @@
 import React from 'react';
+import * as Styles from './followButtonStyles';
 
 class FollowButton extends React.Component {
   constructor(props) {
@@ -22,11 +23,11 @@ class FollowButton extends React.Component {
     const followToolTip = isFollowing ? 'Unfollow' : 'Follow';
     if (isFollowing) {
       return (
-        <button id="followingArtistButton" onClick={this.toggleFollow} title={followToolTip}>Following</button>
+        <Styles.followingArtistButton onClick={this.toggleFollow} title={followToolTip}>Following</Styles.followingArtistButton>
       );
     }
     return (
-      <button id="followArtistButton" onClick={this.toggleFollow} title={followToolTip}>Follow</button>
+      <Styles.followArtistButton onClick={this.toggleFollow} title={followToolTip}>Follow</Styles.followArtistButton>
     );
   }
 }
