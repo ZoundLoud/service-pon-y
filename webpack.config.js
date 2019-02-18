@@ -16,6 +16,7 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
     ],
+
   },
   resolve: {
     extensions: ['*', '.js', '.jsx'],
@@ -31,4 +32,5 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin({}),
   ],
+
 };

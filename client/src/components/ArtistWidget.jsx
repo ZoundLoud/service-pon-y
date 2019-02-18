@@ -6,6 +6,8 @@ import {
 import NumericLabel from 'react-pretty-numbers';
 import FollowButton from './FollowButton';
 
+import * as Styles from './artistStyles';
+
 const params = {
   justification: 'L',
   locales: 'en-AU',
@@ -46,31 +48,26 @@ function ArtistWidget({ artistData }) {
 
   console.log('pro status: ', pro_status);
   return (
-    <div className="artistWidget">
-      <img src={avatar_picture} alt="avatar" />
-      <div id="artistName">
-        <span className="artistNameToolTipContainer" title={`Visit ${artist_name}'s Profile`}>
-          {artist_name}
-        </span>
+    <Styles.artistWidget>
+      <Styles.avatarPic src={avatar_picture} alt="avatar" />
+      <Styles.artistName title={`Visit ${artist_name}'s Profile`}>
+        {artist_name}
         {isPro(pro_status)}
-      </div>
-      <div className="followAndTrackCount">
-        <span className="ArtistFollowBadge" id={no_of_followers} title={`${no_of_followers.toLocaleString()} followers`}>
-          <span style={{ marginRight: '3px' }}>
-            <FontAwesomeIcon color="#999" icon={faUserFriends} />
-          </span>
+      </Styles.artistName>
+      <Styles.followAndTrackCount>
+        <Styles.ArtistFollowBadge title={`${no_of_followers.toLocaleString()} followers`}>
+          <FontAwesomeIcon color="#999" icon={faUserFriends} />
+          {' '}
           <NumericLabel params={params}>{no_of_followers}</NumericLabel>
-        </span>
-        <span className="ArtistTrackBadge" title={`${no_of_tracks} tracks`}>
-          <span style={{ marginRight: '3px' }}>
-            <FontAwesomeIcon color="#666" padding-right="3px" icon={faHeadphones} />
-          </span>
-          {no_of_tracks}
-        </span>
+        </Styles.ArtistFollowBadge>
+        <Styles.ArtistTrackBadge title={`${no_of_tracks} tracks`}>
+          <FontAwesomeIcon color="#666" icon={faHeadphones} />
+          {` ${no_of_tracks}`}
+        </Styles.ArtistTrackBadge>
 
-      </div>
+      </Styles.followAndTrackCount>
       <FollowButton isFollowing={is_followed} />
-      <div className="reportButton" style={{ marginTop: '30px' }}>
+      <Styles.reportButton>
         <span className="fa-layers fa-fw">
           <FontAwesomeIcon icon={faSquare} size="1x" transform={{ rotate: 45 }} />
           <span style={{ fontSize: '7px' }}>
@@ -78,8 +75,8 @@ function ArtistWidget({ artistData }) {
           </span>
         </span>
         {'  Report'}
-      </div>
-    </div>
+      </Styles.reportButton>
+    </Styles.artistWidget>
 
   );
 }

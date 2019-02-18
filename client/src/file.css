@@ -11,23 +11,10 @@
     padding: 15px;
     width: 900px;
 }
-.artistWidget {
-    float: left;
-    width: 100%;
-    height: 100%;
-    padding: 0 20px;
-    min-width: 120px;
-    font: 14px "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Verdana,Tahoma,sans-serif;
-    color: #333;
-    display: block;
-    margin: 0 1%;
-    flex-basis: 12%;
-}
 
 .songDetailContainer .songDetailWidgetSmall {
     float:left;
     width: 100%;
-    /* width: 80%; */
     height: 170px;
     font: 12px "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Verdana,Tahoma,sans-serif;
     color: #333;
@@ -99,31 +86,12 @@
     background: #666;
 }
 
-.artistWidget img {
-    height: 120px;
-    width: 120px;
-    border-radius: 50%;
-    box-shadow: rgba(0,0,0,.1)0 0 0 1px inset;
-    text-align: center;
-    
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 50% 50%;
-    cursor: pointer;
-    object-fit: cover;
-}
+
 
 #songDetailContainer {
     font: 14px "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Verdana,Tahoma,sans-serif;
     font-size: 12px;
     color: #999;
-}
-
-.artistWidget .followAndTrackCount {
-    color: #999;
-    font-size: 11px;
-    line-height: 12px;
-    margin-bottom:10px;
 }
 
 .artistWidget .ArtistTrackBadge {
@@ -139,16 +107,10 @@
     color: #999;
     padding-right: 5px;
     cursor: pointer;
+    margin-right: '3px';
 }
 .artistWidget .ArtistFollowBadge:hover {
     color: #666
-}
-#artistName {
-    font: 14px "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Verdana,Tahoma,sans-serif;
-    color: #333;
-    margin-bottom: 10px;
-    margin-top: 5px;
-
 }
 
 #followArtistButton {
@@ -208,11 +170,6 @@
 }
 .songDetailContainer .showMoreText:active {
     color: #333;
-}
-
-.songDetailContainer .artistNameToolTipContainer {
-    cursor: pointer;
-    width: 10%;
 }
 
 .songDetailContainer .songDescriptionAt {
