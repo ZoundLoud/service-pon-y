@@ -20,9 +20,9 @@
 > Some usage instructions
 1. load tables from schema.sql
 2. seed data from seedDB.js
-3. start server 
-
-- Can check react work on localhost:8080
+2b. if needed use npm build
+3. start server using nodemon server/index.js 
+4. go to localhost:3000 on browser
 
 ## Requirements
 
@@ -32,7 +32,8 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 - etc
 
 ## Development
-
+1. npm start
+2. go to localhost:8080 on browser
 ### Installing Dependencies
 
 From within the root directory:
