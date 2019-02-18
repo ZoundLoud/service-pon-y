@@ -2,15 +2,6 @@
     display: block;
     padding: 5px 0px;
 }
-.container {
-    display: flex;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding: 15px;
-    width: 900px;
-}
 
 .songDetailContainer .songDetailWidgetSmall {
     float:left;
@@ -94,70 +85,9 @@
     color: #999;
 }
 
-.artistWidget .ArtistTrackBadge {
-    color: #999;
-    padding: 0 5px;
-    cursor: pointer;
-}
 
-.artistWidget .ArtistTrackBadge:hover {
-    color: #666;
-}
-.artistWidget .ArtistFollowBadge {
-    color: #999;
-    padding-right: 5px;
-    cursor: pointer;
-    margin-right: '3px';
-}
-.artistWidget .ArtistFollowBadge:hover {
-    color: #666
-}
 
-#followArtistButton {
-    background-color: #f50;
-    border-color: #f50;
-    color: #fff;
-    font-size: 11px;
-    padding: 2px 9px 2px 8px;
-    height: 22px;
-    line-height: 16px;
-    display: inline-block;
-    position: relative;
-    cursor: pointer;
-    border: 1px solid #e5e5e5;
-    border-radius: 3px;
-    white-space: nowrap;
-    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
-    font-weight: 100;
-    text-align: center;
-    vertical-align: baseline;
-    box-sizing: border-box;
-}
 
-#followingArtistButton {
-    border-color: #e5e5e5;
-    color: #f50;
-    background-color: #fff;
-    font-size: 11px;
-    padding: 2px 9px 2px 8px;
-    height: 22px;
-    line-height: 16px;
-    display: inline-block;
-    position: relative;
-    cursor: pointer;
-    border-radius: 3px;
-    white-space: nowrap;
-    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
-    font-weight: 100;
-    text-align: center;
-    vertical-align: baseline;
-    box-sizing: border-box;
-
-}
-
-#followingArtistButton:hover {
-    border-color: #f50;
-}
 
 .songDetailContainer .showMoreText{
     width: 400px;
@@ -239,17 +169,6 @@
 
 .songDetailContainer .songDescriptionAt:hover {
     color: #666;
-    cursor: pointer;
-}
-
-.artistWidget .reportButton {
-    font-size: 10px;
-    color: #666;
-    cursor: pointer;
-}
-
-.artistWidget .reportButton:hover {
-    color:#333;
     cursor: pointer;
 }
 

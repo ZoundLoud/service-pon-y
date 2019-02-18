@@ -2,6 +2,8 @@ import React from 'react';
 import ArtistWidget from './components/ArtistWidget';
 import SongDetailWidget from './components/songDetailWidget';
 
+import Styled from './appContainerStyle';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -48,11 +50,11 @@ class App extends React.Component {
     } = this.state;
 
     return (
-      <div className="container">
+      <Styled>
 
         <ArtistWidget artistData={artistData && artistData[artistIdx]} />
         <SongDetailWidget artistData={artistData} songData={songData && songData[artistIdx]} truncated={detailsTruncated} toggleTruncate={this.toggleTruncate} />
-      </div>
+      </Styled>
     );
   }
 }
