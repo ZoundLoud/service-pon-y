@@ -8,7 +8,7 @@ import NumericLabel from 'react-pretty-numbers';
 import FollowButton from './FollowButton';
 
 function SongDetail({ label, value }) {
-  if (!value) {
+  if (!value || value === '') {
     return null;
   }
   if (label === 'Release Date:') {
@@ -83,7 +83,7 @@ function SongDetailWidget({
             <div className="popup">
               <img src={artistObject.avatar_picture} />
               <div className="songComponentAtArtistName" title={`Visit ${artistObject.artist_name}'s profile`}>{artistObject.artist_name}</div>
-              <div className="songComponentAtFollows" title={`${artistObject.no_of_followers} followers`}>
+              <div className="songComponentAtFollows" title={`${artistObject.no_of_followers.toLocaleString()} followers`}>
                 <FontAwesomeIcon icon={faUserFriends} color="#999" />
                 {' '}
                 <small>
