@@ -18,11 +18,11 @@
 ## Usage
 
 > Some usage instructions
-1. load tables from schema.sql
-2. seed data from seedDB.js
-2b. if needed use npm build
-3. start server using nodemon server/index.js 
-4. go to localhost:3000 on browser
+1. npm run db
+2. npm run seed
+3. npm run build
+4. start server using nodemon server/index.js 
+5. go to localhost:3000 on browser
 
 ## Requirements
 
