@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS zoundloud;
+DROP DATABASE IF EXISTS artistsongdescription;
 
-CREATE DATABASE zoundloud;
+CREATE DATABASE artistsongdescription;
 
-USE zoundloud;
+USE artistsongdescription;
 
 CREATE TABLE artist_info (
   id INT(100) PRIMARY KEY AUTO_INCREMENT,
