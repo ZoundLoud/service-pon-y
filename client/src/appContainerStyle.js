@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+//import styled from 'styled-components';
+let styled = window.styled;
 
 const container = styled.div`
   display: flex;
