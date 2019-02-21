@@ -46,7 +46,6 @@ function ArtistWidget({ artistData }) {
     avatar_picture, artist_name, no_of_followers, no_of_tracks, is_followed, pro_status,
   } = artistData;
 
-  console.log('pro status: ', pro_status);
   return (
     <Styles.artistWidget>
       <Styles.avatarPic src={avatar_picture} alt="avatar" />

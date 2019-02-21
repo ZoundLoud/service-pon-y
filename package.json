@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node server/index.js",
     "build": "webpack --config ./webpack.config.js --mode production",
-    "db": "mysql -u root -p <schema.sql",
+    "db": "mysql -u -p <schema.sql",
     "server": "node server/index.js",
     "seed": "node seedDB.js",
     "test": "jest --verbose --coverage -u"

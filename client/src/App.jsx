@@ -18,7 +18,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3210/artistinfo').then(response => response.json())
+    fetch('http://ponydescription.us-west-1.elasticbeanstalk.com/artistinfo').then(response => response.json())
       .then((data) => {
         this.setState({
           artistData: data,
@@ -27,7 +27,7 @@ class App extends React.Component {
         return data;
       });
 
-    fetch('http://localhost:3210/songinfo').then(response => response.json())
+    fetch('http://ponydescription.us-west-1.elasticbeanstalk.com/songinfo').then(response => response.json())
       .then((data) => {
         this.setState({
           songData: data,

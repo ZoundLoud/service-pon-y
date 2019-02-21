@@ -1,6 +1,3 @@
-//import styled from 'styled-components';
-let styled = window.styled;
-
 export const artistName = styled.div`
   font: 14px "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Verdana,Tahoma,sans-serif;
   color: #333;
