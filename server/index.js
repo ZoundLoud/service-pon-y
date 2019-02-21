@@ -10,7 +10,7 @@ const port = 3210;
 
 app.use(bodyParser.json());
 app.use(cors());
-app.use(express.static(path.join(__dirname, '../client/dist')));
+//app.use(express.static(path.join(__dirname, '../client/dist')));
 
 app.get('/artistinfo', (req, res) => {
   db.artistWidget((data) => {
