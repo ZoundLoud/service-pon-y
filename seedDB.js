@@ -1,11 +1,12 @@
 const mysql = require('mysql');
 const faker = require('faker');
+const require = require('./credentials');
 
 const connection = mysql.createConnection({
-  host: 'mydbpony.ckmkufajwaoa.us-west-1.rds.amazonaws.com',
-  user: 'pony',
-  password: 'arpakasso',
-  database: 'mydbpony',
+  host: credentials.host,
+  user: credentials.username,
+  password: credentials.password,
+  database: credentials.database,
 }); 
 
 connection.connect();
