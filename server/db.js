@@ -1,10 +1,11 @@
 const mysql = require('mysql');
+const credentials = require('../credentials');
 
 const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'artist',
+  host: 'mydbpony.ckmkufajwaoa.us-west-1.rds.amazonaws.com',
+  user: credentials.username,
+  password: credentials.password,
+  database: 'mydbpony',
 });
 
 connection.connect();

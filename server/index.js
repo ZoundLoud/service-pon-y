@@ -6,7 +6,7 @@ const db = require('./db');
 
 const app = express();
 
-const port = 3210;
+const port = 8081;
 
 app.use(bodyParser.json());
 app.use(cors());

@@ -1,5 +1,3 @@
-import styled from 'styled-components';
-
 export const followingArtistButton = styled.button`
   border-color: #e5e5e5;
   color: #f50;
