@@ -18,8 +18,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    // 'http://ponydescription.us-west-1.elasticbeanstalk.com/artistinfo'
-    fetch('http://localhost:8081/artistinfo').then(response => response.json())
+    fetch('http://ponydescription.us-west-1.elasticbeanstalk.com/artistinfo').then(response => response.json())
       .then((data) => {
         this.setState({
           artistData: data,
@@ -27,8 +26,7 @@ class App extends React.Component {
         });
         return data;
       });
-      // `http://ponydescription.us-west-1.elasticbeanstalk.com/song/:songID/songinfo/`
-    fetch(`${window.location.pathname}songinfo`).then(response => response.json())
+    fetch(`http://ponydescription.us-west-1.elasticbeanstalk.com${window.location.pathname}songinfo/`).then(response => response.json())
       .then((data) => {
         this.setState({
           songData: data,
