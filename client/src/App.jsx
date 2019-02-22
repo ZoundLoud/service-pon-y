@@ -18,7 +18,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://ponydescription.us-west-1.elasticbeanstalk.com/artistinfo').then(response => response.json())
+    // 'http://ponydescription.us-west-1.elasticbeanstalk.com/artistinfo'
+    fetch('http://localhost:8081/artistinfo').then(response => response.json())
       .then((data) => {
         this.setState({
           artistData: data,
@@ -26,8 +27,8 @@ class App extends React.Component {
         });
         return data;
       });
-
-    fetch('http://ponydescription.us-west-1.elasticbeanstalk.com/songinfo').then(response => response.json())
+      // `http://ponydescription.us-west-1.elasticbeanstalk.com/song/:songID/songinfo/`
+    fetch(`${window.location.pathname}songinfo`).then(response => response.json())
       .then((data) => {
         this.setState({
           songData: data,
@@ -49,11 +50,13 @@ class App extends React.Component {
       artistData, artistIdx, songData, detailsTruncated,
     } = this.state;
 
+    let songNumber = window.location.pathname.split('/')[2];
+    
     return (
       <Styled>
 
-        <ArtistWidget artistData={artistData && artistData[artistIdx]} />
-        <SongDetailWidget artistData={artistData} songData={songData && songData[artistIdx]} truncated={detailsTruncated} toggleTruncate={this.toggleTruncate} />
+        <ArtistWidget artistData={artistData && artistData[songNumber]} />
+        <SongDetailWidget artistData={artistData} songData={songData && songData[0]} truncated={detailsTruncated} toggleTruncate={this.toggleTruncate} />
       </Styled>
     );
   }

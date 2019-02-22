@@ -10,7 +10,7 @@ const port = 8081;
 
 app.use(bodyParser.json());
 app.use(cors());
-app.use(express.static(path.join(__dirname, '../client/dist')));
+app.use('/song/:songID',express.static(path.join(__dirname, '../client/dist')));
 
 app.get('/artistinfo', (req, res) => {
   db.artistWidget((data) => {
@@ -18,8 +18,11 @@ app.get('/artistinfo', (req, res) => {
   });
 });
 
-app.get('/songinfo', (req, res) => {
-  db.songDescription((data) => {
+app.get('/song/:songID/songinfo', (req, res) => {
+  const { songID } = req.params;
+  console.log('song id: ', songID)
+  db.songDescription(songID, (data) => {
+    console.log(data);
     res.send(data);
   });
 });

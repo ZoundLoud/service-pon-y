@@ -20,8 +20,8 @@ const artistWidget = (cb) => {
   });
 };
 
-const songDescription = (cb) => {
-  connection.query('SELECT * from song_description', (err, results) => {
+const songDescription = (songID, cb) => {
+  connection.query(`SELECT * FROM song_description WHERE id = ${songID}`, (err, results) => {
     if (err) {
       cb(err);
       return;
