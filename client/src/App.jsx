@@ -49,11 +49,13 @@ class App extends React.Component {
     } = this.state;
 
     let songNumber = window.location.pathname.split('/')[2];
-    
+    if(songNumber === '' || !songNumber ) {
+      songNumber = 4;
+    } 
     return (
       <Styled>
 
-        <ArtistWidget artistData={artistData && artistData[songNumber]} />
+        <ArtistWidget artistData={artistData && artistData[songNumber - 1]} />
         <SongDetailWidget artistData={artistData} songData={songData && songData[0]} truncated={detailsTruncated} toggleTruncate={this.toggleTruncate} />
       </Styled>
     );

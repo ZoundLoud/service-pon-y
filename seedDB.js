@@ -1,6 +1,6 @@
 const mysql = require('mysql');
 const faker = require('faker');
-const require = require('./credentials');
+const credentials = require('./credentials');
 
 const connection = mysql.createConnection({
   host: credentials.host,
@@ -10,21 +10,27 @@ const connection = mysql.createConnection({
 }); 
 
 connection.connect();
+let text = '';
+let pline = '';
 const artistNames = [];
 const artistvalues = [];
 const songvalues = [];
 const urls = ['www.google.com', 'www.instagram.com', 'https://github.com/ZoundLoud', 'https://expressjs.com/', 'https://developer.mozilla.org/en-US/', 'https://twitter.com/'];
-const avatars = ['https://s3-us-west-1.amazonaws.com/ponyzoundloudproject/CaramelSleeping.png',
-  'https://s3-us-west-1.amazonaws.com/ponyzoundloudproject/GlowPartyDecor.png',
-  'https://s3-us-west-1.amazonaws.com/ponyzoundloudproject/LionAvatar.png',
-  'https://s3-us-west-1.amazonaws.com/ponyzoundloudproject/ShavedIceIcon.png',
-  'https://s3-us-west-1.amazonaws.com/ponyzoundloudproject/dittochu.png',
-  'https://s3-us-west-1.amazonaws.com/ponyzoundloudproject/jellyfish.png',
-  'https://s3-us-west-1.amazonaws.com/ponyzoundloudproject/paperflowers.png',
+const avatars = [
+'http://res.cloudinary.com/da5zmmaac/image/upload/c_scale,f_webp,fl_awebp,w_206/v1550962758/ShavedIceIcon',
+'https://s3-us-west-1.amazonaws.com/ponyzoundloudproject/LionAvatar.webp',
+'https://s3-us-west-1.amazonaws.com/ponyzoundloudproject/dittochu.webp',
+'https://s3-us-west-1.amazonaws.com/ponyzoundloudproject/dittochu.webp',
+'https://res.cloudinary.com/da5zmmaac/image/upload/c_scale,f_webp,h_200,w_200/v1550962757/CaramelSleeping',
+'http://res.cloudinary.com/da5zmmaac/image/upload/c_scale,f_webp,w_200/v1550962758/paperflowers'
 ];
 const songLicence = ['All Rights Reserved', 'Creative Commons License', '', ''];
 for (let i = 0; i < 100; i += 1) {
-  if (i % 3 === 0) {
+  if(i === 0) {
+    artistNames.push('fredness');
+  } else if (i === 99){
+    artistNames.push('Stevb')
+  } else if (i % 3 === 0) {
     artistNames.push(faker.name.firstName());
   } else if (i % 2 === 0 && i % 3 !== 0) {
     artistNames.push(faker.name.lastName());
@@ -34,9 +40,16 @@ for (let i = 0; i < 100; i += 1) {
 }
 
 for (let i = 0; i < 100; i += 1) {
-  let text = '';
-  const pline = `℗ ${faker.company.companyName()}${faker.company.companySuffix()}`;
-  text = text.concat(faker.lorem.paragraphs(2), ' @', artistNames[Math.floor(Math.random() * artistNames.length)], ' ', faker.lorem.paragraph(1), ' ', urls[Math.floor(Math.random() * urls.length)], ' ', faker.lorem.paragraph(2));
+  if(i === 0) {
+    text = 'fredness fredness fredness @fredness fredness';
+  } else if(i === 99) {
+    text = 'Our boy steve @Stevb';
+    pline = '';
+  }else {
+    text = '';
+    pline = `℗ ${faker.company.companyName()}${faker.company.companySuffix()}`;
+    text = text.concat(faker.lorem.paragraphs(2), ' @', artistNames[Math.floor(Math.random() * artistNames.length)], ' ', faker.lorem.paragraph(1), ' ', urls[Math.floor(Math.random() * urls.length)], ' ', faker.lorem.paragraph(2));
+  }
 
 
   artistvalues.push([
