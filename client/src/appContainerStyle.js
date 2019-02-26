@@ -5,7 +5,7 @@ const container = styled.div`
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   padding: 15px;
-  width: 900px;
+  width: 100%;
 `;
 
 export default container;
